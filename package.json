@@ -1,0 +1,45 @@
+{
+  "name": "knopp-theme",
+  "version": "1.0.0",
+  "description": "Grav theme for Kevin Knopp's personal website",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kknopper/knopp-theme.git"
+  },
+  "author": "kevin knopp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kknopper/knopp-theme/issues"
+  },
+  "homepage": "https://github.com/kknopper/knopp-theme",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browser-sync": "^2.18.6",
+    "browserify": "^13.3.0",
+    "bs-html-injector": "^3.0.3",
+    "del": "^2.2.2",
+    "exorcist": "^0.4.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-scss-lint": "^0.4.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-uglify": "^2.0.0",
+    "run-sequence": "^1.2.2",
+    "sass-module-importer": "^1.4.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.8.0"
+  },
+  "dependencies": {
+    "Kraken": "github:cferdinandi/kraken",
+    "gulp": "^3.9.1",
+    "megatype": "^1.1.2",
+    "normalize.css": "^5.0.0",
+    "sanitize.css": "^4.1.0"
+  }
+}

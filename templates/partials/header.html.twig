@@ -1,0 +1,18 @@
+<nav role="navigation" class="navbar">
+    <a href="/home">
+        <img class="site-logo" src="{{ theme_url }}/dist/svg/logo.svg">
+    </a>
+    <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+            {% for page in pages.children %}
+            {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+            <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+            {% endif %}
+            {% endfor %}
+            <li class="nav-trigger">
+                <img src="{{ theme_url }}/dist/images/nav-plus-white.png" />
+            </li>
+        </ul>
+    <div>
+</nav>

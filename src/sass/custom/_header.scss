@@ -1,0 +1,48 @@
+.navbar {
+  display: flex;
+  background-color: $color-primary;
+  color: $color-white;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 75px;
+
+  a {
+    color: $color-white;
+  }
+
+  li {
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+
+.navbar-nav {
+  align-items: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+
+  li {
+    align-self: center;
+    padding: 0 15px;
+  }
+
+  .nav-trigger {
+    max-height: 50px;
+
+    img {
+      max-width: 25px;
+      align-items: center;
+      padding: 12.5px 0;
+    }
+  }
+}
+
+.site-logo {
+  display: block;
+  position: absolute;
+  max-width: 50px;
+  top: 12.5px;
+  left: 25px;
+}
