@@ -10303,9 +10303,9 @@ var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-var _konamiCode = require("./konami-code");
-
 var _debug = require("./debug");
+
+var _konamiCode = require("./konami-code");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

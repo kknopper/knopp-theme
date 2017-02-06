@@ -4,11 +4,12 @@
 @import "../../node_modules/Kraken/src/sass/main.scss";
 //Kraken config
 @import "config";
+@import "helpers/mixins";
+@import "helpers/fonts";
 
 //Components
 #main {
-	@import "helpers/mixins";
-	@import "helpers/fonts";
 	@import "components/header";
 	@import "components/hero";
+	@import "components/footer";
 }

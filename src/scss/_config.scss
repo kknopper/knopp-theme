@@ -31,7 +31,7 @@ $color-gray-light: #e5e5e5;
 //Theme color config
 .theme-color {
 	color: $color-primary;
-	transition: color 1s;
+	transition: color 2s;
 
 	.konami & {
 		color: $color-secondary;
@@ -40,7 +40,7 @@ $color-gray-light: #e5e5e5;
 
 .theme-color-bg {
 	background-color: $color-primary;
-	transtion: background-color 1s;
+	transition: background-color 2s;
 
 	.konami & {
 		background-color: $color-secondary;

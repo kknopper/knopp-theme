@@ -1,7 +1,6 @@
 import $ from "jquery";
-import { konami } from "./konami-code";
 import { debug } from "./debug";
-
+import { konami } from "./konami-code";
 
 $(document).ready(function() {
 
@@ -17,7 +16,4 @@ $(document).ready(function() {
 	})
 
 	konami();
-
-
-
 });
