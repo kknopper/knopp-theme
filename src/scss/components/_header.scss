@@ -1,4 +1,4 @@
-.navbar {
+.header {
   position: absolute;
   top: 0;
   width: 100%;
@@ -13,7 +13,7 @@
 
   &.active {
 
-    .navbar-nav {
+    .navbar {
       max-height: 75px;
     }
   }
@@ -28,7 +28,7 @@
   }
 }
 
-.navbar-nav {
+.navbar {
   height: 75px;
   align-items: center;
   margin: 0 auto;
@@ -55,6 +55,11 @@
       align-items: center;
       padding: 12.5px 0;
       cursor: pointer;
+      transition: all 0.3s;
+
+      &.active {
+        transform: rotate(45deg);
+      }
     }
   }
 }

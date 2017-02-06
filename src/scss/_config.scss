@@ -31,10 +31,20 @@ $color-gray-light: #e5e5e5;
 //Theme color config
 .theme-color {
 	color: $color-primary;
+	transition: color 1s;
+
+	.konami & {
+		color: $color-secondary;
+	}
 }
 
 .theme-color-bg {
 	background-color: $color-primary;
+	transtion: background-color 1s;
+
+	.konami & {
+		background-color: $color-secondary;
+	}
 }
 
 

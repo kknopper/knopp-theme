@@ -1,0 +1,35 @@
+<footer role="navigation" class="footer theme-color-bg">
+    <nav class="container">
+        
+        <ul class="footer-share">
+            <li>
+                <i class="icon-dribbble"></i>
+            </li>
+            <li>
+                <i class="icon-github"></i>
+            </li>
+            <li>
+                <i class="icon-facebook"></i>
+            </li>
+            <li>
+                <i class="icon-twitter"></i>
+            </li>
+            <li>
+                <i class="icon-email"></i>
+            </li>
+            <li>
+                <i class="icon-rss"></i>
+            </li>
+        </ul>
+        <ul class="footer-links">
+            {% for page in pages.children %}
+            {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+                {% if page.menu != 'Home' %}{# hide home link #}
+                    <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                {% endif %}
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </nav>
+</footer>

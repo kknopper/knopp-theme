@@ -10221,37 +10221,111 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
-'use strict';
+"use strict";
 
-var _jquery = require('jquery');
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.debug = debug;
+var config = {};
+config.debug = true;
+
+//Console.logs only when debug set to true
+function debug(log) {
+	if (config.debug) {
+		console.log(log);
+	}
+}
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.konami = undefined;
+
+var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
+
+var _debug = require("./debug");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function konami() {
+	//Set up our array of needed keys, and variables.
+	var neededkeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+	    started = false,
+	    count = 0;
+	(0, _jquery2.default)(document).keydown(function (e) {
+		var key = e.keyCode;
+		//Set start to true only if having pressed the first key in the konami sequence.
+		if (!started) {
+			if (key == 38) {
+				started = true;
+			}
+		}
+		//If we've started, pay attention to key presses, looking for right sequence.
+		if (started) {
+			if (neededkeys[count] == key) {
+				//We're good so far.
+				count++;
+			} else {
+				//Oops, not the right sequence, lets restart from the top.
+				reset();
+			}
+			if (count == 10) {
+				//We made it! Put code here to do what you want when successfully execute konami sequence
+				(0, _jquery2.default)('#main').toggleClass('konami');
+				(0, _debug.debug)('konami code activated!');
+				//Reset the conditions so that someone can do it all again.
+				reset();
+			}
+		} else {
+			//Oops.
+			reset();
+		}
+	});
+	//Function used to reset us back to starting point.
+	function reset() {
+		started = false;count = 0;
+		return;
+	}
+}
+
+exports.konami = konami;
+
+},{"./debug":2,"jquery":1}],4:[function(require,module,exports){
+"use strict";
+
+var _jquery = require("jquery");
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _konamiCode = require("./konami-code");
+
+var _debug = require("./debug");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _jquery2.default)(document).ready(function () {
 
-	var config = {};
-	config.debug = true;
+	(0, _debug.debug)('document ready');
 
-	//Console.logs only when debug set to true
-	function debug(log) {
-		if (config.debug) {
-			console.log(log);
-		}
-	}
-	debug('document ready');
-
-	var $nav = (0, _jquery2.default)('.navbar'),
+	var $header = (0, _jquery2.default)('.header'),
 	    $navTrigger = (0, _jquery2.default)('.nav-trigger img');
 
 	$navTrigger.click(function () {
-		$nav.toggleClass('active');
-		debug("test");
+		(0, _jquery2.default)(this).toggleClass('active');
+		$header.toggleClass('active');
+		(0, _debug.debug)("toggle header");
 	});
+
+	(0, _konamiCode.konami)();
 });
 
-},{"jquery":1}]},{},[2])
+},{"./debug":2,"./konami-code":3,"jquery":1}]},{},[4])
 //# sourceMappingURL=bundle.js.map
 
 //# sourceMappingURL=main.js.map
