@@ -1,0 +1,40 @@
+.hero {
+	height: 415px;
+	width: 100%;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -150px / cover no-repeat;
+
+	&-wrap {
+		position: relative;
+		height: 100%;
+	}
+
+	&-text {
+		font-family: 'League Spartan';
+		color: $color-white;
+		text-align: center;
+		padding-top: 95px;
+
+	    h1 {
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+			margin-bottom: 0;
+			font-size: em(48);
+	    }
+
+	    h2 {
+	    	font-size: em(24);
+	    }
+
+	    .dev-text {
+	    	font-family: 'Courier';
+	    	font-size: 1.75rem;
+	    }
+
+	    .des-text {
+	    	font-family: 'Pacifico';
+	    	font-size: 1.65rem;
+	    	letter-spacing: 0.75px;
+	    	padding-right: 3px;
+	    }
+	}
+}

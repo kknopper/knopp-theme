@@ -7,6 +7,12 @@
 // line height: 1.5em on small screens, 1.5625em on big screens
 
 
+//Grav plugin resets:
+.notices p {
+	margin-bottom: 0;
+	padding: 10px 0;
+}
+
 // Colors
 $color-primary: #F06925;
 $color-secondary: #96BDC6;
@@ -21,6 +27,15 @@ $color-code: #dd1144;
 
 $color-gray-dark: #808080;
 $color-gray-light: #e5e5e5;
+
+//Theme color config
+.theme-color {
+	color: $color-primary;
+}
+
+.theme-color-bg {
+	background-color: $color-primary;
+}
 
 
 // Font Stacks

@@ -1,18 +1,29 @@
-<nav role="navigation" class="navbar">
+<nav role="navigation" class="navbar theme-color-bg">
     <a href="/home">
-        <img class="site-logo" src="{{ theme_url }}/dist/svg/logo.svg">
+        <img class="site-logo theme-color-bg" src="{{ theme_url }}/target/images/logo.svg">
     </a>
     <div class="container">
         <ul class="nav navbar-nav navbar-right">
             {% for page in pages.children %}
             {% if page.visible %}
             {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-            <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                {% if page.menu != 'Home' %}{# hide home link#}
+                    <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
+                }
+                {% endif %}
             {% endif %}
             {% endfor %}
             <li class="nav-trigger">
-                <img src="{{ theme_url }}/dist/images/nav-plus-white.png" />
+                <img src="{{ theme_url }}/target/images/nav-plus-white.png" />
             </li>
         </ul>
     <div>
 </nav>
+<div class="hero">
+    <div class="hero-wrap">
+        <div class="hero-text">
+            <h1>{{page.header.hero.h1}}</h1>
+            <h2>{{page.header.hero.h2}}</h2>
+        </div>
+    </div>
+</div>

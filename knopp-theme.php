@@ -29,9 +29,5 @@ class Knopp extends Theme
         $this->grav['assets']
             ->addCss('plugin://css/mytheme-core.css')
             ->addCss('plugin://css/mytheme-custom.css');
-
-        $this->grav['assets']
-            ->add('jquery', 101)
-            ->addJs('theme://js/jquery.myscript.min.js');
     }
 }

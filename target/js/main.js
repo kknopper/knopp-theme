@@ -10221,18 +10221,34 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var _jquery = require("jquery");
+var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// Add your scripts here...
-(0, _jquery2.default)('nav-trigger image').click(function () {
-  // $(this).rotate
-  alert("test");
+(0, _jquery2.default)(document).ready(function () {
+
+	var config = {};
+	config.debug = true;
+
+	//Console.logs only when debug set to true
+	function debug(log) {
+		if (config.debug) {
+			console.log(log);
+		}
+	}
+	debug('document ready');
+
+	var $nav = (0, _jquery2.default)('.navbar'),
+	    $navTrigger = (0, _jquery2.default)('.nav-trigger img');
+
+	$navTrigger.click(function () {
+		$nav.toggleClass('active');
+		debug("test");
+	});
 });
 
 },{"jquery":1}]},{},[2])

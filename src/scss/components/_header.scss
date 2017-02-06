@@ -1,11 +1,22 @@
 .navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
   display: flex;
-  background-color: $color-primary;
   color: $color-white;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  height: 75px;
+  height: auto;
+  margin-bottom: -75px;
+  z-index: 1;
+
+  &.active {
+
+    .navbar-nav {
+      max-height: 75px;
+    }
+  }
 
   a {
     color: $color-white;
@@ -18,10 +29,15 @@
 }
 
 .navbar-nav {
+  height: 75px;
   align-items: center;
   margin: 0 auto;
+  padding-right: 55px;
   display: flex;
   justify-content: flex-end;
+  max-height: 0;
+  transition: all 0.3s;
+  overflow: hidden;
 
   li {
     align-self: center;
@@ -30,11 +46,15 @@
 
   .nav-trigger {
     max-height: 50px;
+    position: absolute;
+    right: 6%;
+    top: 12.5px;
 
     img {
       max-width: 25px;
       align-items: center;
       padding: 12.5px 0;
+      cursor: pointer;
     }
   }
 }

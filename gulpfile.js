@@ -166,7 +166,7 @@ gulp.task('server', function() {
 
 	browserSync.init({
         proxy: "http://grav.kevin.dev",
-        open: true
+        open: false
     });
 })
 
