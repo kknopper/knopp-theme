@@ -7,7 +7,7 @@
             {% for page in pages.children %}
             {% if page.visible %}
             {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-                {% if page.menu != 'Home' %}{# hide home link#}
+                {% if page.menu != 'Home' %}{# hide home link in}
                     <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
                 }
                 {% endif %}
@@ -17,7 +17,7 @@
                 <img src="{{ theme_url }}/target/images/nav-plus-white.png" />
             </li>
         </ul>
-    <div>
+    </div>
 </nav>
 <div class="hero">
     <div class="hero-wrap">
