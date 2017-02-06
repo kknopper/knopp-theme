@@ -7,7 +7,7 @@
             {% for page in pages.children %}
             {% if page.visible %}
             {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-                {% if page.menu != 'Home' %}{# hide home link in}
+                {% if page.menu != 'Home' %}{# hide home link #}
                     <li class="{{ current_page }}"><a href="{{ page.url }}">{{ page.menu }}</a></li>
                 }
                 {% endif %}
