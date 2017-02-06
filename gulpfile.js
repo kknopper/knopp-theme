@@ -165,7 +165,7 @@ gulp.task('server', function() {
   	});
 
 	browserSync.init({
-        proxy: "http://project-template.kevin.dev",
+        proxy: "http://grav.kevin.dev",
         open: true
     });
 })
