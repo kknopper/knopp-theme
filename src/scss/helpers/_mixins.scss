@@ -36,25 +36,28 @@
 // 	@return ($px / $base) * 1em;
 // }
 
+// Breakpoints
+// $bp-xsmall: 20em;
+// $bp-small: 30em;
+// $bp-medium: 40em;
+// $bp-large: 60em;
+// $bp-xlarge: 80em;
+
+//desktop: 960
+//tablet: 640
 @mixin breakpoint($point) {
-  @if $point == desktop {
-    @media (min-width: 1160px) { @content; }
-  } @else if $point == s-desktop {
-    @media (max-width: 1159px)  { @content; }
+  @if $point == l-desktop {
+    @media (min-width: $bp-xlarge) { @content; }
+  } @else if $point == desktop {
+    @media (min-width: $bp-large)  { @content; }
   } @else if $point == tablet {
-    @media (max-width: 979px)  { @content; }
+    @media (min-width: $bp-medium)  { @content; }
   } @else if $point == mobile {
-    @media (max-width: 767px)  { @content; }
+    @media (min-width: $bp-small)  { @content; }
   } @else if $point == s-mobile {
-    @media (max-width: 480px)  { @content; }
-  } @else if $point == not-tablet {
-    @media (min-width: 979px) { @content; }
-  } @else if $point == not-mobile {
-    @media (min-width: 768px) { @content; }
-  } @else if $point == above-desktop {
-    @media (min-width: 944px) { @content; }
+    @media (min-width: $bp-xsmall)  { @content; }
   } @else {
-    @media (max-width: #{$point})  { @content; }
+    @media (min-width: #{$point})  { @content; }
   }
 }
 

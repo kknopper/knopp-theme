@@ -10309,6 +10309,7 @@ var _konamiCode = require("./konami-code");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Prism from "prismjs";
 (0, _jquery2.default)(document).ready(function () {
 
 	(0, _debug.debug)('document ready');

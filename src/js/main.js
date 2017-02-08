@@ -1,4 +1,5 @@
 import $ from "jquery";
+// import Prism from "prismjs";
 import { debug } from "./debug";
 import { konami } from "./konami-code";
 

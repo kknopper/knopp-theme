@@ -1,7 +1,19 @@
 .hero {
 	height: 415px;
 	width: 100%;
-	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -150px / cover no-repeat;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 0 / cover no-repeat;
+
+	@include breakpoint(tablet) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -65px / cover no-repeat;
+	}
+
+	@include breakpoint(desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -150px / cover no-repeat;
+	}
+
+	@include breakpoint(l-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -450px / cover no-repeat;
+	}
 
 	&-wrap {
 		position: relative;
@@ -18,7 +30,11 @@
 			text-transform: uppercase;
 			letter-spacing: 1.5px;
 			margin-bottom: 0;
-			font-size: em(48);
+			font-size: em(40);
+
+			@include breakpoint(tablet) {
+				font-size: em(48)
+			}
 	    }
 
 	    h2 {

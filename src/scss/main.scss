@@ -1,11 +1,10 @@
-//Libraries
-
-//Kraken w/ normalize
-@import "../../node_modules/Kraken/src/sass/main.scss";
-//Kraken config
-@import "config";
 @import "helpers/mixins";
 @import "helpers/fonts";
+//Kraken w/ normalize
+@import "kraken/main";
+
+@import"global";
+
 
 //Components
 #main {

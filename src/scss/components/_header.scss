@@ -1,6 +1,10 @@
+.wrapper {
+  position: fixed;
+}
+
 .header {
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: -75px;
   width: 100%;
   display: flex;
   color: $color-white;
@@ -8,47 +12,116 @@
   align-items: center;
   justify-content: flex-start;
   height: auto;
-  margin-bottom: -75px;
+  margin-bottom: -415px;
   z-index: 1;
+  transition: all 0.3s ease-in-out;
+
+  @include breakpoint(tablet) {
+    margin-bottom: -75px;
+  }
 
   &.active {
+    position: fixed;
+    transition: all 1s ease-in-out;
+    top: 0;
 
     .navbar {
-      max-height: 75px;
+      max-height: 415px;
+      transition-delay: 0s;
+
+      @include breakpoint(tablet) {
+        max-height: 75px;
+      }
+
+      li {
+        opacity: 1;
+      }
     }
   }
 
   a {
     color: $color-white;
+    display: block;
   }
 
   li {
-    display: inline-block;
+    display: block;
     text-decoration: none;
+
+    @include breakpoint(tablet) {
+      display: inline-block;
+    }
+  }
+}
+
+nav.container {
+  width: 100%;
+  max-width: none;
+
+  @include breakpoint(tablet) {
+    width: 88%;
+    max-width: 80em;
   }
 }
 
 .navbar {
-  height: 75px;
+  height: 415px;
   align-items: center;
   margin: 0 auto;
-  padding-right: 55px;
-  display: flex;
-  justify-content: flex-end;
+  display: block;
   max-height: 0;
   transition: all 0.3s;
   overflow: hidden;
+  transition-delay: 0.5s;
+
+  @include breakpoint(tablet) {
+    height: 75px;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 55px;
+    overflow: hidden;
+  }
 
   li {
     align-self: center;
-    padding: 0 15px;
+    text-align: center;
+    padding: 23px 0;
+    opacity: 0;
+    transition: all 0.3s;
+    //fade in after bar opens
+    transition-delay: 0.3s;
+
+    &:first-child {
+      margin-top: 63px;
+
+      @include breakpoint(tablet) {
+        margin-top: 0;
+      }
+    }
+
+    @include breakpoint(tablet) {
+      width: auto;
+      text-align: left;
+      padding: 0 15px;
+    }
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .nav-trigger {
+    width: auto;
     max-height: 50px;
     position: absolute;
+    position: fixed;
     right: 6%;
     top: 12.5px;
+    padding: 0;
+    margin: 0;
+    opacity: 1;
 
     img {
       max-width: 25px;
