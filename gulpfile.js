@@ -2,7 +2,8 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	plumber = require('gulp-plumber'),
 	sass = require('gulp-sass'),
-	scsslint = require('gulp-scss-lint'),
+	// scsslint = require('gulp-scss-lint'),
+	// scsslint = require('gulp-scss-lint'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	// jshint = require('gulp-jshint'),
@@ -136,14 +137,8 @@ gulp.task('scss', function(){
 	gulp.src(conf.src.scss)
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
-	    .pipe(sass.sync({
-			includePaths: [
-				// __dirname + '/node_modules/normalize.css/',
-				// __dirname + '/node_modules/sanitize.css/',
-				__dirname + '/node_modules/megatype/',
-				__dirname + '/node_modules/Kraken/src/sass'
-			]
-	    }).on('error', sass.logError))
+	    .pipe(sass.sync().on('error', sass.logError))
+	    // .pipe(scsslint())
 	    .pipe(sourcemaps.write())
 	    .pipe(autoprefixer())
 	    .pipe(gulp.dest(conf.dist.css))

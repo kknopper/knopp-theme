@@ -22,15 +22,15 @@
 // @include font('CourierPrime-Italic', 'Courier Prime', 'normal', 'italic');
 // @include font('CourierPrime-BoldItalic', 'Courier Prime', 'bold', 'italic');
 //Montserat
-// @include font('Montserrat-Thin', 'Montserrat', '100');
-// @include font('Montserrat-ExtraLight', 'Montserrat', '200');
-// @include font('Montserrat-Light', 'Montserrat', '300');
+@include font('Montserrat-Thin', 'Montserrat', 100);
+@include font('Montserrat-ExtraLight', 'Montserrat', 200);
+@include font('Montserrat-Light', 'Montserrat', 300);
 @include font('Montserrat-Regular', 'Montserrat');
-// @include font('Montserrat-Medium', 'Montserrat', '500');
-// @include font('Montserrat-SemiBold', 'Montserrat', '600');
-// @include font('Montserrat-Bold', 'Montserrat', 'bold');
-// @include font('Montserrat-ExtraBold', 'Montserrat', '800');
-// @include font('Montserrat-Black', 'Montserrat', '900');
+@include font('Montserrat-Medium', 'Montserrat', 500);
+@include font('Montserrat-SemiBold', 'Montserrat', 600);
+@include font('Montserrat-Bold', 'Montserrat', bold);
+@include font('Montserrat-ExtraBold', 'Montserrat', 800);
+@include font('Montserrat-Black', 'Montserrat', 900);
 
 //Icomoon
 @import "icomoon";
