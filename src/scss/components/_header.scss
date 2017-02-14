@@ -1,10 +1,12 @@
 .wrapper {
-  // position: fixed; 
+  position: fixed;
+  top: 0;
+  z-index: 5;
 }
 
 .header {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: -75px;
   width: 100%;
   display: flex;
   color: $color-white;
@@ -12,8 +14,8 @@
   align-items: center;
   justify-content: flex-start;
   height: auto;
-  margin-bottom: -75px;
-  z-index: 1;
+  margin-bottom: -415px;
+  z-index: 999;
   transition: all 0.3s ease-in-out;
 
   @include breakpoint(tablet) {
@@ -21,8 +23,8 @@
   }
 
   &.active {
-    // position: fixed;
-    transition: all 0.3s ease-in-out;
+    position: fixed;
+    transition: all 1s ease-in-out;
     top: 0;
 
     .navbar {
@@ -116,12 +118,13 @@ nav.container {
     width: auto;
     max-height: 50px;
     position: absolute;
-    // position: fixed;
+    position: fixed;
     right: 6%;
     top: 12.5px;
     padding: 0;
     margin: 0;
     opacity: 1;
+    z-index: 5;
 
     img {
       max-width: 25px;
