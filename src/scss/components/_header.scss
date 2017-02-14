@@ -3,8 +3,8 @@
 }
 
 .header {
-  position: relative;
-  top: -75px;
+  position: absolute;
+  top: 0;
   width: 100%;
   display: flex;
   color: $color-white;
@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: flex-start;
   height: auto;
-  margin-bottom: -415px;
+  margin-bottom: -75px;
   z-index: 1;
   transition: all 0.3s ease-in-out;
 
@@ -21,8 +21,8 @@
   }
 
   &.active {
-    position: fixed;
-    transition: all 1s ease-in-out;
+    // position: fixed;
+    transition: all 0.3s ease-in-out;
     top: 0;
 
     .navbar {
@@ -116,7 +116,7 @@ nav.container {
     width: auto;
     max-height: 50px;
     position: absolute;
-    position: fixed;
+    // position: fixed;
     right: 6%;
     top: 12.5px;
     padding: 0;
