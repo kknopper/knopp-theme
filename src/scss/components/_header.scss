@@ -104,6 +104,10 @@ nav.container {
       text-align: left;
       padding: 0 15px;
     }
+
+    &.active {
+      border-bottom: 2px solid $color-white;
+    }
   }
 
   a {
