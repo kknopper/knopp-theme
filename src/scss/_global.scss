@@ -1,6 +1,19 @@
+h1 {
+	font-family: 'League Spartan';
+	font-size: em(40);
+	text-transform: uppercase;
+}
+
 h2 {
 	font-family: "Montserrat";
+	font-size: em(24);
 	font-weight: bold;
+}
+
+h3 {
+	font-family: 'League Spartan';
+	font-size: em(36);
+	text-transform: uppercase;
 }
 
 p, ul, li, body {

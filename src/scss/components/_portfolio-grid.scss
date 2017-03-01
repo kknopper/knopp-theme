@@ -1,0 +1,12 @@
+.portfolio {
+	display: block;
+
+	&-grid {
+		display: block;
+	}
+
+	&-piece {
+		display: inline-block;
+		list-style-type: none;
+	}
+}

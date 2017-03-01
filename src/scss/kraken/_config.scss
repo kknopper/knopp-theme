@@ -33,6 +33,10 @@ $color-gray-light: #e5e5e5;
 	color: $color-primary;
 	transition: color 2s;
 
+	&-secondary {
+		color: $color-secondary;
+	}
+
 	.konami & {
 		color: $color-secondary;
 	}
@@ -41,6 +45,10 @@ $color-gray-light: #e5e5e5;
 .theme-color-bg {
 	background-color: $color-primary;
 	transition: background-color 2s;
+
+	&-secondary {
+		background-color: $color-secondary;
+	}
 
 	.konami & {
 		background-color: $color-secondary;

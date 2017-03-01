@@ -27,18 +27,12 @@
 		padding-top: 95px;
 
 	    h1 {
-			text-transform: uppercase;
 			letter-spacing: 1.5px;
 			margin-bottom: 0;
-			font-size: em(40);
 
 			@include breakpoint(tablet) {
 				font-size: em(48)
 			}
-	    }
-
-	    h2 {
-	    	font-size: em(24);
 	    }
 
 	    .dev-text {

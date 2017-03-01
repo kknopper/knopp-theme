@@ -135,6 +135,10 @@
   @return #{$pixels/16}em
 }
 
+@function rem($pixels) {
+  @return #{$pixels/16}rem
+}
+
 @mixin font($filename, $family, $weight:'normal', $style:'normal') {
   @font-face {
     font-family: $family;

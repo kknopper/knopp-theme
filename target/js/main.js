@@ -1229,7 +1229,7 @@ var trim = String.prototype.trim ?
 
 }));
 
-},{"./item":6,"./layout-mode":7,"./layout-modes/fit-rows":8,"./layout-modes/masonry":9,"./layout-modes/vertical":10,"desandro-matches-selector":1,"fizzy-ui-utils":3,"get-size":4,"outlayer":14}],6:[function(require,module,exports){
+},{"./item":6,"./layout-mode":7,"./layout-modes/fit-rows":8,"./layout-modes/masonry":9,"./layout-modes/vertical":10,"desandro-matches-selector":1,"fizzy-ui-utils":3,"get-size":4,"outlayer":15}],6:[function(require,module,exports){
 /**
  * Isotope Item
 **/
@@ -1308,7 +1308,7 @@ return Item;
 
 }));
 
-},{"outlayer":14}],7:[function(require,module,exports){
+},{"outlayer":15}],7:[function(require,module,exports){
 /**
  * Isotope LayoutMode
  */
@@ -1467,7 +1467,7 @@ return Item;
 
 }));
 
-},{"get-size":4,"outlayer":14}],8:[function(require,module,exports){
+},{"get-size":4,"outlayer":15}],8:[function(require,module,exports){
 /**
  * fitRows layout mode
  */
@@ -1613,7 +1613,7 @@ return FitRows;
 
 }));
 
-},{"../layout-mode":7,"masonry-layout":12}],10:[function(require,module,exports){
+},{"../layout-mode":7,"masonry-layout":13}],10:[function(require,module,exports){
 /**
  * vertical layout mode
  */
@@ -1670,6 +1670,151 @@ return Vertical;
 }));
 
 },{"../layout-mode":7}],11:[function(require,module,exports){
+/**
+ * Bridget makes jQuery widgets
+ * v2.0.1
+ * MIT license
+ */
+
+/* jshint browser: true, strict: true, undef: true, unused: true */
+
+( function( window, factory ) {
+  // universal module definition
+  /*jshint strict: false */ /* globals define, module, require */
+  if ( typeof define == 'function' && define.amd ) {
+    // AMD
+    define( [ 'jquery' ], function( jQuery ) {
+      return factory( window, jQuery );
+    });
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS
+    module.exports = factory(
+      window,
+      require('jquery')
+    );
+  } else {
+    // browser global
+    window.jQueryBridget = factory(
+      window,
+      window.jQuery
+    );
+  }
+
+}( window, function factory( window, jQuery ) {
+'use strict';
+
+// ----- utils ----- //
+
+var arraySlice = Array.prototype.slice;
+
+// helper function for logging errors
+// $.error breaks jQuery chaining
+var console = window.console;
+var logError = typeof console == 'undefined' ? function() {} :
+  function( message ) {
+    console.error( message );
+  };
+
+// ----- jQueryBridget ----- //
+
+function jQueryBridget( namespace, PluginClass, $ ) {
+  $ = $ || jQuery || window.jQuery;
+  if ( !$ ) {
+    return;
+  }
+
+  // add option method -> $().plugin('option', {...})
+  if ( !PluginClass.prototype.option ) {
+    // option setter
+    PluginClass.prototype.option = function( opts ) {
+      // bail out if not an object
+      if ( !$.isPlainObject( opts ) ){
+        return;
+      }
+      this.options = $.extend( true, this.options, opts );
+    };
+  }
+
+  // make jQuery plugin
+  $.fn[ namespace ] = function( arg0 /*, arg1 */ ) {
+    if ( typeof arg0 == 'string' ) {
+      // method call $().plugin( 'methodName', { options } )
+      // shift arguments by 1
+      var args = arraySlice.call( arguments, 1 );
+      return methodCall( this, arg0, args );
+    }
+    // just $().plugin({ options })
+    plainCall( this, arg0 );
+    return this;
+  };
+
+  // $().plugin('methodName')
+  function methodCall( $elems, methodName, args ) {
+    var returnValue;
+    var pluginMethodStr = '$().' + namespace + '("' + methodName + '")';
+
+    $elems.each( function( i, elem ) {
+      // get instance
+      var instance = $.data( elem, namespace );
+      if ( !instance ) {
+        logError( namespace + ' not initialized. Cannot call methods, i.e. ' +
+          pluginMethodStr );
+        return;
+      }
+
+      var method = instance[ methodName ];
+      if ( !method || methodName.charAt(0) == '_' ) {
+        logError( pluginMethodStr + ' is not a valid method' );
+        return;
+      }
+
+      // apply method, get return value
+      var value = method.apply( instance, args );
+      // set return value if value is returned, use only first value
+      returnValue = returnValue === undefined ? value : returnValue;
+    });
+
+    return returnValue !== undefined ? returnValue : $elems;
+  }
+
+  function plainCall( $elems, options ) {
+    $elems.each( function( i, elem ) {
+      var instance = $.data( elem, namespace );
+      if ( instance ) {
+        // set options & init
+        instance.option( options );
+        instance._init();
+      } else {
+        // initialize new instance
+        instance = new PluginClass( elem, options );
+        $.data( elem, namespace, instance );
+      }
+    });
+  }
+
+  updateJQuery( $ );
+
+}
+
+// ----- updateJQuery ----- //
+
+// set $.bridget for v1 backwards compatibility
+function updateJQuery( $ ) {
+  if ( !$ || ( $ && $.bridget ) ) {
+    return;
+  }
+  $.bridget = jQueryBridget;
+}
+
+updateJQuery( jQuery || window.jQuery );
+
+// -----  ----- //
+
+return jQueryBridget;
+
+}));
+
+},{"jquery":12}],12:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -11891,7 +12036,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 /*!
  * Masonry v4.1.1
  * Cascading grid layout library
@@ -12098,7 +12243,7 @@ return jQuery;
 
 }));
 
-},{"get-size":4,"outlayer":14}],13:[function(require,module,exports){
+},{"get-size":4,"outlayer":15}],14:[function(require,module,exports){
 /**
  * Outlayer Item
  */
@@ -12653,7 +12798,7 @@ return Item;
 
 }));
 
-},{"ev-emitter":2,"get-size":4}],14:[function(require,module,exports){
+},{"ev-emitter":2,"get-size":4}],15:[function(require,module,exports){
 /*!
  * Outlayer v2.1.0
  * the brains and guts of a layout library
@@ -13594,20 +13739,35 @@ return Outlayer;
 
 }));
 
-},{"./item":13,"ev-emitter":2,"fizzy-ui-utils":3,"get-size":4}],15:[function(require,module,exports){
+},{"./item":14,"ev-emitter":2,"fizzy-ui-utils":3,"get-size":4}],16:[function(require,module,exports){
 "use strict";
 
 var _jquery = require("jquery");
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-require("isotope-layout");
+var _jqueryBridget = require("jquery-bridget");
+
+var _jqueryBridget2 = _interopRequireDefault(_jqueryBridget);
+
+var _isotopeLayout = require("isotope-layout");
+
+var _isotopeLayout2 = _interopRequireDefault(_isotopeLayout);
 
 var _debug = require("./modules/debug");
+
+var _grid = require("./modules/grid");
 
 var _konamiCode = require("./modules/konami-code");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//make isotope work with jquery in imports
+_jquery2.default.bridget('isotope', _isotopeLayout2.default);
+
+//Module imports
+//Dependencies
+
 
 (0, _jquery2.default)(document).ready(function () {
 
@@ -13623,11 +13783,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 		(0, _debug.debug)("toggle header");
 	});
 
+	(0, _grid.grid)();
 	(0, _konamiCode.konami)();
 });
-// import Prism from "prismjs";
 
-},{"./modules/debug":16,"./modules/konami-code":17,"isotope-layout":5,"jquery":11}],16:[function(require,module,exports){
+},{"./modules/debug":17,"./modules/grid":18,"./modules/konami-code":19,"isotope-layout":5,"jquery":12,"jquery-bridget":11}],17:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13644,7 +13804,34 @@ function debug(log) {
 	}
 }
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.grid = undefined;
+
+var _jquery = require("jquery");
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _debug = require("./debug");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function grid() {
+	var $grid = (0, _jquery2.default)('.portfolio-grid');
+
+	$grid.isotope({
+		itemSelector: '.portfolio-piece',
+		layoutMode: 'fitRows'
+	});
+}
+
+exports.grid = grid;
+
+},{"./debug":17,"jquery":12}],19:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13703,7 +13890,7 @@ function konami() {
 
 exports.konami = konami;
 
-},{"./debug":16,"jquery":11}]},{},[15])
+},{"./debug":17,"jquery":12}]},{},[16])
 //# sourceMappingURL=bundle.js.map
 
 //# sourceMappingURL=main.js.map
