@@ -4,8 +4,6 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	// scsslint = require('gulp-scss-lint'),
 	// scsslint = require('gulp-scss-lint'),
-	concat = require('gulp-concat'),
-	uglify = require('gulp-uglify'),
 	// jshint = require('gulp-jshint'),
 	del = require('del'),
 	runSequence = require('run-sequence'),
@@ -14,11 +12,8 @@ var gulp = require('gulp'),
  	imagemin = require('gulp-imagemin'),
  	source = require('vinyl-source-stream');
  	buffer = require('vinyl-buffer'),
- 	exorcist = require('exorcist'),
- 	browserify = require('browserify'),
- 	babelify = require('babelify'),
- 	watchify = require('watchify'),
  	htmlInjector = require('bs-html-injector'),
+ 	webpack = require('gulp-webpack')
  	browserSync = require('browser-sync').create();
 
 var paths = {
@@ -45,56 +40,44 @@ var conf = {
 	}
 };
 
-//SCRIPTS WITH ES6 BABEL and Watchify
-function scripts(watch) {
+gulp.task('js', function() {
+	return gulp.src(conf.src.js)
+		.pipe(webpack({
+			module: {
+				loaders: [{
+					loader: 'babel-loader',
+					exlude: '/node_modules',
+					query: {
+						presets: ['es2015']
+					}
+				}],
+			},
+			output: {
+				filename: 'main.js'
+			}
+		}))
+		.pipe(gulp.dest(conf.dist.js))
+})
 
-	if (watch) {
-		var bundler = watchify(browserify('./src/js/main.js', { debug: true }));
-	} else {
-		var bundler = browserify('./src/js/main.js', { debug: true });
-	}
-	
-	//Transform with Babel
-	bundler.transform(babelify.configure({
-    	sourceMapRelative: 'src/js'
-	}));
-
-	function rebundle() {
-
-		gutil.log('Compiling JS...');
-
-		bundler.bundle()
-		  .on('error', function(err) { console.error(err); gutil.log(err); browserSync.notify("Browserify Error!"); this.emit('end'); })
-		  .pipe(exorcist(conf.dist.js + 'bundle.js.map'))
-		  .pipe(source('main.js'))
-		  .pipe(buffer())
-		  .pipe(sourcemaps.init({ loadMaps: true }))
-		  .pipe(sourcemaps.write('./'))
-		  .pipe(gulp.dest(conf.dist.js))
-		  .pipe(browserSync.stream({once: true}));
-		}
-
-		if (watch) {
-		bundler.on('update', function() {
-		  console.log('-> bundling...');
-		  rebundle();
-		});
-	}
-
-	rebundle();
-}
-
-function scriptsWatch() {
-  return scripts(true);
-};
-
-
-//Gulp task to compile Scripts with Browserify and ES6
-gulp.task('js', function() { return scripts(); });
-
-
-//Watches js and updates on changes
-gulp.task('js-watch', function() { return scriptsWatch(); });
+gulp.task('js-watch', function() {
+	return gulp.src(conf.src.js)
+		.pipe(webpack({
+			watch: true,
+			module: {
+				loaders: [{
+					loader: 'babel-loader',
+					exlude: '/node_modules',
+					query: {
+						presets: ['es2015']
+					}
+				}],
+			},
+			output: {
+				filename: 'main.js'
+			}
+		}))
+		.pipe(gulp.dest(conf.dist.js))
+})
 
 
 //Copies fonts from src to dist
@@ -111,7 +94,7 @@ gulp.task('imgs', function() {
 	gulp.src(conf.src.imgs)
         .pipe(imagemin())
         .pipe(gulp.dest(conf.dist.imgs));
-    // browserSync.reload();
+    	browserSync.reload();
 });
 
 
@@ -161,7 +144,8 @@ gulp.task('server', function() {
 
 	browserSync.init({
         proxy: "http://grav.kevin.dev",
-        open: true
+        open: false,
+        xip: true
     });
 })
 
@@ -171,12 +155,11 @@ gulp.task('default', function() {
 });
 
 gulp.task('watch', function() {
-	runSequence('clean', ['html', 'scss', 'js', 'fonts', 'imgs', 'docs']);
+	runSequence('clean', ['html', 'scss', 'js-watch', 'fonts', 'imgs', 'docs']);
 	gulp.watch(conf.src.html, ['html']);
 	gulp.watch(conf.src.scss, ['scss']);
 	gulp.watch(conf.src.imgs, ['imgs']);
 	gulp.watch(conf.src.docs, ['docs']);
-	gulp.watch(conf.src.js, ['js-watch']);
 })
 
 

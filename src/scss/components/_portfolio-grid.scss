@@ -3,10 +3,18 @@
 
 	&-grid {
 		display: block;
+		margin: 0;
+		@include clearfix();
 	}
 
 	&-piece {
 		display: inline-block;
 		list-style-type: none;
+		// transition: width 0.3s;
+
+
+		img {
+			width: 100%;
+		}
 	}
 }

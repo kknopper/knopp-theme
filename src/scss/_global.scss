@@ -18,4 +18,9 @@ h3 {
 
 p, ul, li, body {
 	font-weight: normal;
+	font-family: 'Open Sans';
+}
+
+main section:first-child {
+	margin-top: rem(100);
 }

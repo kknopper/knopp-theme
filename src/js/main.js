@@ -1,9 +1,4 @@
-//Dependencies
-import $ from "jquery";
-import jQueryBridget from "jquery-bridget";
-import Isotope from "isotope-layout";
-//make isotope work with jquery in imports
-$.bridget( 'isotope', Isotope );
+import $ from 'jquery';
 
 //Module imports
 import { debug } from "./modules/debug";
