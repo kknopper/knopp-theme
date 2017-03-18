@@ -20279,7 +20279,7 @@
 				}
 				if (count == 10) {
 					//We made it! Put code here to do what you want when successfully execute konami sequence
-					(0, _jquery2.default)('main').toggleClass('konami');
+					(0, _jquery2.default)('body').toggleClass('konami');
 					(0, _debug.debug)('konami code activated!', 'success');
 					//Reset the conditions so that someone can do it all again.
 					reset();

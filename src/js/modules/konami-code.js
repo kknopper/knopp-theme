@@ -23,7 +23,7 @@ function konami() {
 			}
 			if(count == 10){
 				//We made it! Put code here to do what you want when successfully execute konami sequence
-				$('main').toggleClass('konami');
+				$('body').toggleClass('konami');
 				debug('konami code activated!', 'success')
 				//Reset the conditions so that someone can do it all again.
 				reset();

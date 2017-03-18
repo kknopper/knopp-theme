@@ -1,0 +1,19 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+	<section class="portfolio">
+		<ul>
+			<a data-filter="all">All</a>
+			<a data-filter=".dev">Development</a>
+			<a data-filter=".des">Design</a>
+		</ul>
+		<ul class="portfolio-grid">
+			{% set collection = page.collection() %}
+
+			{% for child in collection %}
+			    {% include 'partials/portfolio_item.html.twig' with {'page':child, 'truncate':true} %}
+			{% endfor %}
+		</ul>
+	</section>
+    
+{% endblock %}
