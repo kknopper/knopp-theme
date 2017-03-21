@@ -1939,6 +1939,10 @@ etag@^1.7.0, etag@~1.7.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/etag/-/etag-1.7.0.tgz#03d30b5f67dd6e632d2945d30d6652731a34d5d8"
 
+ev-emitter@~1.0.0:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/ev-emitter/-/ev-emitter-1.0.3.tgz#ee5ef74b6ed28d911b32ddcbfc97867f580937bc"
+
 event-emitter@~0.3.4:
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/event-emitter/-/event-emitter-0.3.4.tgz#8d63ddfb4cfe1fae3b32ca265c4c720222080bb5"
@@ -2838,6 +2842,12 @@ imagemin@^5.0.0:
     pify "^2.3.0"
     promise.pipe "^3.0.0"
     replace-ext "0.0.1"
+
+imagesloaded@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/imagesloaded/-/imagesloaded-4.1.1.tgz#53b5b66615360850a5a264b1293e7f4d06d3bd51"
+  dependencies:
+    ev-emitter "~1.0.0"
 
 immutable@3.8.1, immutable@^3.7.6:
   version "3.8.1"
