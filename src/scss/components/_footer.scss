@@ -5,10 +5,9 @@
 
 	a {
 		color: $color-white;
-
-		&:hover {
-			text-decoration: none;
-		}
+		font-family: Montserrat;
+		font-size: 0.85em;
+		letter-spacing: 1.5px;
 	}
 
 	.container {
@@ -95,14 +94,6 @@
 		&:active {
 			background-image: url('../images/mii-wink.png');
 		}
-
-		// img {
-		// 	width: 100%;
-		//     max-width: 100px;
-		//     margin: 0 auto;
-		//     display: block;
-		//     padding-top: 5px;
-		// }
 	}
 
 	&-legal {
