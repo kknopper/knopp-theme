@@ -1,0 +1,21 @@
+.about {
+	text-align: center;
+}
+
+.education-icon, .occupation-icon {
+	max-width: 50px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.icon-wrap {
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	border: 5px solid $color-tertiary;
+}

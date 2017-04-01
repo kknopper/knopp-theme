@@ -16,8 +16,13 @@
 // Colors
 $color-primary: #F06925;
 $color-secondary: #96BDC6;
+$color-tertiary: #65C18D;
 $color-black: #272727;
 $color-white: #ffffff;
+
+$konami-primary: $color-tertiary;
+$konami-secondary: $color-primary;
+$konami-tertiary: $color-primary;
 
 $color-info: #0088cc; // Blue
 $color-success: #377f31; // Green
@@ -38,30 +43,54 @@ $color-gray-light: #e5e5e5;
 		transition: color 2s ease-in-out;
 
 		.konami & {
-			color: $color-primary;
+			color: $konami-secondary;
+		}
+	}
+
+	&-tertiary {
+		color: $color-tertiary;
+		transition: color 2s ease-in-out;
+
+		.konami & {
+			color: $konami-tertiary;
 		}
 	}
 
 	.konami & {
-		color: $color-secondary;
+		color: $konami-primary;
 	}
 }
 
 .theme-color-bg {
 	background-color: $color-primary;
-	transition: background-color 2s ease-in-out;
+	fill: $color-primary;
+	transition: all 2s ease-in-out;
 
 	&-secondary {
 		background-color: $color-secondary;
-		transition: background-color 2s ease-in-out;
+		fill: $color-secondary;
+		transition: all 2s ease-in-out;
 
 		.konami & {
-			background-color: $color-primary;
+			background-color: $konami-secondary;
+			fill: $konami-secondary;
+		}
+	}
+
+	&-tertiary {
+		background-color: $color-tertiary;
+		fill: $color-tertiary;
+		transition: all 2s ease-in-out;
+
+		.konami & {
+			background-color: $konami-tertiary;
+			fill: $konami-tertiary;
 		}
 	}
 
 	.konami & {
-		background-color: $color-secondary;
+		background-color: $konami-primary;
+		fill: $konami-primary;
 	}
 }
 

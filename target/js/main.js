@@ -9958,16 +9958,18 @@
 	    var $grid = (0, _jquery2.default)('.portfolio-grid'),
 	        $gridItem = (0, _jquery2.default)('.portfolio-piece');
 
-	    (0, _debug.debug)('Initiate Grid', 'success');
+	    if ($grid.length > 0) {
+	        (0, _debug.debug)('Initiate Grid', 'success');
 
-	    var mixer = (0, _mixitup2.default)($grid, {
-	        selectors: {
-	            target: '.portfolio-piece'
-	        },
-	        animation: {
-	            duration: 500
-	        }
-	    });
+	        var mixer = (0, _mixitup2.default)($grid, {
+	            selectors: {
+	                target: '.portfolio-piece'
+	            },
+	            animation: {
+	                duration: 500
+	            }
+	        });
+	    }
 	}
 
 	exports.grid = grid;

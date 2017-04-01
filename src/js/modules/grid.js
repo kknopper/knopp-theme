@@ -9,18 +9,22 @@ import mixitup from 'mixitup';
 
 function grid() {
 	let $grid = $('.portfolio-grid'),
-	$gridItem = $('.portfolio-piece')
+	$gridItem = $('.portfolio-piece');
 
-	debug('Initiate Grid', 'success');
+    if ($grid.length > 0) {
+      debug('Initiate Grid', 'success');
 
-	let mixer = mixitup($grid, {
-    	selectors: {
-        	target: '.portfolio-piece'
-    	},
-    	animation: {
-        	duration: 500
-    	}
-	});
+        let mixer = mixitup($grid, {
+            selectors: {
+                target: '.portfolio-piece'
+            },
+            animation: {
+                duration: 500
+            }
+        });  
+    }
+
+	
 }
 
 export { grid };
