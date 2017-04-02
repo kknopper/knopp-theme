@@ -1,5 +1,15 @@
 .about-page {
 	text-align: center;
+
+    h3 {
+        margin-bottom: rem(12);
+    }
+
+    hr {
+        height: 3px;
+        margin: 0;
+        margin-bottom: rem(20);
+    }
 }
 
 .education-icon, .occupation-icon {

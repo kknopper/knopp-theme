@@ -2,6 +2,7 @@
 	position: relative;
 	margin-top: 65px;
 	color: $color-white;
+	
 
 	a {
 		color: $color-white;
@@ -10,8 +11,26 @@
 		letter-spacing: 1.5px;
 	}
 
+	&-wrap {
+		overflow: hidden;
+		position: relative;
+		&:after {
+			content:'';
+		   position:absolute;
+		   top: 0;
+		   left: 50%;
+		   transform: translate(-50%, -50%);
+		   width: 108px;
+		   height: 108px;
+		   border-radius: 100%;
+		   // box-shadow: 0px 10000px 0px 10000px $color-primary;
+		}
+	}
+
 	.container {
 		display: block;
+		position: relative;
+		z-index: 1;
 		
 
 		@include breakpoint(desktop) {
@@ -82,8 +101,8 @@
 		&-wrap {
 			width: 108px;
 			height: 108px;
-			background-color: $color-white;
-			background: linear-gradient(180deg, transparent 50%, white 50%);;
+			// background-color: $color-white;
+			// background: linear-gradient(180deg, transparent 50%, white 50%);
 			border-radius: 50%;
 			position: absolute;
 			left: 50%;
@@ -104,5 +123,40 @@
 		@include breakpoint(desktop) {
 			display: flex;
 		}
+	}
+}
+
+.footer-logo {
+	display: block;
+	
+	width: 100px;
+	height: 100px;
+	border-width: 4px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	overflow: hidden;
+	background-image: url('../images/mii.png');
+	background-size: 100px;
+	background-position: 60% 5px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+
+	&-wrap {
+		width: 108px;
+		height: 108px;
+		// background-color: $color-white;
+		// background: linear-gradient(180deg, transparent 50%, white 50%);
+		border-radius: 50%;
+		position: absolute;
+		left: 50%;
+		top: 0%;
+		transform: translate(-50%, -50%);
+	}
+
+	&:active {
+		background-image: url('../images/mii-wink.png');
 	}
 }
