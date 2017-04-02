@@ -139,15 +139,15 @@
   @return #{$pixels/16}rem
 }
 
-@mixin font($filename, $family, $weight:'normal', $style:'normal') {
+@mixin font($filename, $family, $weight:'normal', $style:'normal', $url:'../fonts/') {
   @font-face {
     font-family: $family;
-    src: url('../fonts/#{$filename}.eot'); /* IE9 Compat Modes */
-    src: url('../fonts/#{$filename}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../fonts/#{$filename}.woff2') format('woff2'),
-         url('../fonts/#{$filename}.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../fonts/#{$filename}.ttf') format('truetype'),
-         url('../fonts/#{$filename}.svg##{$filename}') format('svg');
+    src: url('#{$url}#{$filename}.eot'); /* IE9 Compat Modes */
+    src: url('#{$url}#{$filename}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('#{$url}#{$filename}.woff2') format('woff2'),
+         url('#{$url}#{$filename}.woff') format('woff'), /* Pretty Modern Browsers */
+         url('#{$url}#{$filename}.ttf') format('truetype'),
+         url('#{$url}#{$filename}.svg##{$filename}') format('svg');
     font-weight: $weight;
     font-style: $style;
   }

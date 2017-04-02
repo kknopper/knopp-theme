@@ -9961,10 +9961,15 @@
 
 	function grid() {
 	    var $grid = (0, _jquery2.default)('.portfolio-grid'),
+	        $gridItemImg = (0, _jquery2.default)('.portfolio-piece img'),
 	        $gridItem = (0, _jquery2.default)('.portfolio-piece'),
-	        $gridExpansions = (0, _jquery2.default)('.portfolio-piece-expansion');
+	        $gridExpansions = (0, _jquery2.default)('.portfolio-piece-expansion'),
+	        $overlayClose = (0, _jquery2.default)('.overlay-close'),
+	        $overlay = (0, _jquery2.default)('.overlay'),
+	        $overlayContent = (0, _jquery2.default)('.overlay-content'),
+	        $body = (0, _jquery2.default)('body'),
+	        $html = (0, _jquery2.default)('html');
 
-<<<<<<< HEAD
 	    if ($grid.length > 0) {
 	        (0, _debug.debug)('Initiate Grid', 'success');
 
@@ -9976,30 +9981,31 @@
 	                duration: 500
 	            }
 	        });
+
+	        $gridItem.click(function (e) {
+	            e.preventDefault();
+	            //remove currecnt active states
+	            $gridItem.removeClass('active');
+	            (0, _jquery2.default)(this).addClass('active');
+
+	            var newHTML = (0, _jquery2.default)(this).find('.portfolio-piece-expansion').html();
+
+	            $overlay.addClass('active');
+	            $overlayContent.html("<div class=\"container\">" + newHTML + "</div>");
+	            $html.addClass('noscroll');
+	        });
+
+	        $overlayClose.click(function () {
+	            $gridItem.removeClass('active');
+	            $overlay.removeClass('active');
+	            $overlayContent.html('');
+	            $html.removeClass('noscroll');
+	        });
+
+	        $grid.imagesLoaded(function () {
+	            (0, _debug.debug)('Grid images loaded');
+	        });
 	    }
-=======
-	    (0, _debug.debug)('Initiate Grid', 'success');
-
-	    var mixer = (0, _mixitup2.default)($grid, {
-	        selectors: {
-	            target: '.portfolio-piece'
-	        },
-	        animation: {
-	            duration: 500
-	        }
-	    });
-
-	    $gridItem.click(function (e) {
-	        e.preventDefault();
-	        //remove currecnt active states
-	        $gridItem.removeClass('active');
-	        (0, _jquery2.default)(this).addClass('active');
-	    });
-
-	    $grid.imagesLoaded(function () {
-	        (0, _debug.debug)('Grid images loaded');
-	    });
->>>>>>> 3120cb0820c74d72fcff0a37a4461e476dfd1655
 	}
 
 	exports.grid = grid;

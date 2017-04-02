@@ -2,7 +2,7 @@
 
 {% block content %}
     
-	<section class="home container">
+	<section class="home-page container">
 		{{ page.content }}
 
 		<div class="row">
@@ -12,12 +12,16 @@
 			</div>
 			
 			<ul class="portfolio-grid">
-			    {% for portfolio in page.collection() %}
-					{% include 'partials/portfolio_item.html.twig' with {'page':child, 'truncate':true} %}
+			    {% for portfolio in page.collection %}
+					{% include 'partials/portfolio_item.html.twig' with {'page':portfolio, 'truncate':true} %}
 				{% endfor %}
 			</ul>
 		</div>
 	</section>
+	<div class="overlay theme-color-bg">
+		<i class="overlay-close fa fa-close"></i>
+		<div class="overlay-content"></div>
+	</div>
     
 
 	

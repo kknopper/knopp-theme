@@ -84,6 +84,9 @@ gulp.task('js-watch', function() {
 gulp.task('fonts', function(){
 	gulp.src(conf.src.fonts)
 		.pipe(gulp.dest(conf.dist.fonts));
+	//Font Awesome
+	gulp.src('node_modules/font-awesome/fonts/*')
+    .pipe(gulp.dest(conf.dist.fonts))
 	browserSync.reload();
 	// done();
 });

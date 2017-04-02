@@ -10,8 +10,14 @@ imagesLoaded.makeJQueryPlugin($);
 
 function grid() {
 	let $grid = $('.portfolio-grid'),
-	$gridItem = $('.portfolio-piece'),
-    $gridExpansions = $('.portfolio-piece-expansion');
+	$gridItemImg = $('.portfolio-piece img'),
+    $gridItem = $('.portfolio-piece'),
+    $gridExpansions = $('.portfolio-piece-expansion'),
+    $overlayClose = $('.overlay-close'),
+    $overlay = $('.overlay'),
+    $overlayContent = $('.overlay-content'),
+    $body = $('body'),
+    $html = $('html');
 
     if ($grid.length > 0) {
       debug('Initiate Grid', 'success');
@@ -30,7 +36,22 @@ function grid() {
             //remove currecnt active states
             $gridItem.removeClass('active');
             $(this).addClass('active');
-        })
+
+            let newHTML = $(this).find('.portfolio-piece-expansion').html();
+
+            $overlay.addClass('active')
+            $overlayContent.html(`<div class="container">${newHTML}</div>`);
+            $html.addClass('noscroll')
+        });
+
+        $overlayClose.click(function() {
+            $gridItem.removeClass('active');
+            $overlay.removeClass('active')
+            $overlayContent.html('');
+            $html.removeClass('noscroll')
+        });
+
+
 
         $grid.imagesLoaded(function() {
             debug('Grid images loaded');

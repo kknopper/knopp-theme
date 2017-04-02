@@ -1,7 +1,7 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-	<section class="portfolio">
+	<section class="portfolio container">
 		<ul>
 			<a data-filter="all">All</a>
 			<a data-filter=".dev">Development</a>
@@ -15,5 +15,9 @@
 			{% endfor %}
 		</ul>
 	</section>
+	<div class="overlay theme-color-bg">
+		<i class="overlay-close fa fa-close"></i>
+		<div class="overlay-content"></div>
+	</div>
     
 {% endblock %}

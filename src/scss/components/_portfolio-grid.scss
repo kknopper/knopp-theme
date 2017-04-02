@@ -7,10 +7,27 @@
 		@include clearfix();
 	}
 
+	&-overlay {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 50%;
+		height: 50%;
+		border-radius: 50%;
+		opacity: 0;
+		transform: translate(-50%, -50%);
+		// transition: color 0.2s 0.3s, background-color 0.3s ease-in-out, width 0.3s 0s;
+		transition: all 0.2s 0.3s;
+		background-color: $color-primary;
+	}
+
 	&-piece {
 		display: inline-block;
 		list-style-type: none;
-		// transition: width 0.3s;
+		position: relative;
+		transition: all 0.5s;
+		z-index: 0;
+		cursor: pointer;
 
 		a {
 			position: relative;
@@ -18,10 +35,12 @@
 
 		img {
 			width: 100%;
+			transition: 0.5s;
 		}
 
 		&-expansion {
 			width: 100%;
+			display: none;
 			background-color: gray;
 			width: 88%;
 			height: auto;
@@ -34,33 +53,77 @@
 		    padding: 0 1.4%;
 		    transition: min-height 0.3s;
 		    margin-top: 10px;
-
-			&.active {
-
-			}
 		}
 
 		&.active {
 
-			.portfolio-piece-expansion {
-				min-height: 200px;
+			// width: 50px;
+			// height: 50px;
+			// transform: translate(-50%, -50%);
+			border-radius: 50%;
+			transform: scale(0.25);
+			background-color: $color-primary;
+			z-index: 1;
+
+			img {
+				opacity: 0;
 			}
 
-			a {
-				&:after {
-					top: auto;
-					border: solid transparent;
-					content: " ";
-					height: 0;
-					width: 0;
-					position: absolute;
-					pointer-events: none;
-					border-bottom-color: gray;
-					border-width: 15px;
-					left: 50%;
-					margin: -20px 0 0 -15px;
-				}
+			.portfolio-overlay {
+				opacity: 1;
+				transform: scale(50);
+				position: fixed;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				width: auto;
+				height: auto;
 			}
 		}
+	}
+}
+
+.overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 2;
+	transition: all 0.3s;
+
+	&-close {
+		color: $color-white;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		font-size: 1.5em;
+		color: $color-primary;
+		width: 35px;
+		height: 35px;
+		border-radius: 50%;
+		background-color: $color-white;
+		text-align: center;
+		cursor: pointer;
+
+		&:before {
+			@include transform-center();
+			top: 45%;
+		}
+	}
+
+	&-content {
+		height: 100%;
+		width: 100%;
+    	overflow-y: auto;
+	}
+
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		transition-delay: 1s;
 	}
 }
