@@ -98,6 +98,8 @@ gulp.task('imgs', function() {
         .pipe(imagemin())
         .pipe(gulp.dest(conf.dist.imgs));
     	browserSync.reload();
+
+    gulp.src(conf.src.imgs).pipe(imagemin()).pipe(gulp.dest('../../pages/images'));
 });
 
 

@@ -1,14 +1,16 @@
-<li class="portfolio-piece grid-dynamic mix {{page.header.portfolio.filter}}">
-	<a href="#" data-largesrc="{{page.header.img.large}}">
-		<img src="{{page.header.portfolio.img}}" alt="">
-	</a>
+<li class="portfolio-piece grid-dynamic mix  {{page.header.portfolio.filter}}">
+	<div class="portfolio-piece-wrap theme-color-bg-secondary">
+		<img src="{{page.header.img.src}}" alt="{{page.header.img.alt}}">
+	</div>
+		
+	{# </a> #}
 
 	<span class="portfolio-overlay"></span>
 		
 	<div class="portfolio-piece-expansion">
 		<div class="portfolio-piece-expansion-inner">
 			<figure>
-				<img src="{{page.header.portfolio.img}}" alt="">
+				<img src="{{page.header.largeImg.src}}" alt="{{page.header.largeImg.alt}}">
 				<figcaption>
 					<h3>{{page.header.title}}</h3>
 				</figcaption>
