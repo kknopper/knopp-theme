@@ -701,7 +701,7 @@ babel-register@^6.23.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.18.0, babel-runtime@^6.22.0:
+babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.5.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.22.0.tgz#1cf8b4ac67c77a4ddb0db2ae1f74de52ac4ca611"
   dependencies:
@@ -3740,6 +3740,12 @@ mkdirp@0.3.0:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
   dependencies:
     minimist "0.0.8"
+
+mo-js@^0.288.1:
+  version "0.288.1"
+  resolved "https://registry.yarnpkg.com/mo-js/-/mo-js-0.288.1.tgz#cd4779b362b6a4a3ddff1c50ce4454c2fd1f7f6d"
+  dependencies:
+    babel-runtime "^6.5.0"
 
 mold-source-map@~0.4.0:
   version "0.4.0"

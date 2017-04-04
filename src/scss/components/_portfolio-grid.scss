@@ -7,30 +7,15 @@
 		@include clearfix();
 	}
 
-	&-overlay {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		width: 50%;
-		height: 50%;
-		border-radius: 50%;
-		opacity: 0;
-		transform: translate(-50%, -50%);
-		// transition: color 0.2s 0.3s, background-color 0.3s ease-in-out, width 0.3s 0s;
-		transition: all 0.2s 0.3s;
-		background-color: $color-primary;
-	}
-
 	&-piece {
 		display: inline-block;
 		list-style-type: none;
 		position: relative;
-		transition: all 0.5s;
 		z-index: 0;
 		cursor: pointer;
 		margin-bottom: 2.8%;
-		// min-width: 250px;
-		
+		transition: all 0.5s;
+		transition-delay: 0.5s;
 
 		a {
 			position: relative;
@@ -39,7 +24,8 @@
 		img {
 			@include transform-center();
 			width: 70%;
-			transition: 0.5s;
+			transition: opacity 0.4s;
+			transition-delay: 0.8s;
 			
 		}
 
@@ -48,6 +34,8 @@
 			width: 100%;
 			height: 100%;
 			display: block;
+			transition: all 0.5s;
+			transition-delay: 0.5s;
 		}
 
 		&-expansion {
@@ -68,29 +56,22 @@
 		}
 
 		&.active {
-
-			// width: 50px;
-			// height: 50px;
-			// transform: translate(-50%, -50%);
 			border-radius: 50%;
-			transform: scale(0.25);
-			background-color: $color-primary;
+			transform: scale(0.45);
 			z-index: 1;
+			transition: all 0.5s;
+			transition-delay: 0.3s;
 
 			img {
 				opacity: 0;
+				transition: opacity 0.3s;
+				transition-delay: 0s;
 			}
 
-			.portfolio-overlay {
-				opacity: 1;
-				transform: scale(50);
-				position: fixed;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				width: auto;
-				height: auto;
+			.portfolio-piece-wrap {
+				border-radius: 50%;
+				transition: all 0.5s;
+				transition-delay: 0.3s;
 			}
 		}
 	}
@@ -108,12 +89,10 @@
 	transition: all 0.3s;
 
 	&-close {
-		color: $color-white;
 		position: absolute;
 		top: 20px;
 		right: 20px;
 		font-size: 1.5em;
-		color: $color-primary;
 		width: 35px;
 		height: 35px;
 		border-radius: 50%;

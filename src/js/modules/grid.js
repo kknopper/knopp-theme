@@ -3,6 +3,7 @@ import { debug } from "./debug";
 import mixitup from 'mixitup';
 import imagesLoaded from 'imagesloaded';
 imagesLoaded.makeJQueryPlugin($);
+// import mojs from 'mo-js';
 // jQuery.ready(function() {
 // 	console.log('add filterizr')
 // 	require('filterizr');
@@ -31,25 +32,57 @@ function grid() {
     	   }
 	   });
 
+
+        let circleOverlay = new mojs.Shape({
+            shape: 'circle',
+            isShowStart:  true,
+            radius: 20,
+            fill: '#96BDC6',
+            // parent: '.portfolio-grid',
+            className: 'circle-overlay',
+            opacity: {0:1},
+            duration: 400,
+            delay: 300
+        }).then({
+            scale: { 0.5 : 50 },
+            duration: 500,
+        });
+
+
         $gridItem.click(function(e) {
             e.preventDefault();
             //remove currecnt active states
             $gridItem.removeClass('active');
             $(this).addClass('active');
 
+            let squareWidth = $(this).find('.portfolio-piece-wrap').width() / 2;
+            let squareOffset = $(this).find('.portfolio-piece-wrap').offset();
+
+            let newTop = (($(this).find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
+            let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
+            let newRadius = squareWidth * 0.25
+            console.log(newTop);
+
+            circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
+
             let newHTML = $(this).find('.portfolio-piece-expansion').html();
 
             $overlay.addClass('active')
             $overlayContent.html(`<div class="container">${newHTML}</div>`);
             $html.addClass('noscroll')
+
+
         });
 
-        $overlayClose.click(function() {
-            $gridItem.removeClass('active');
-            $overlay.removeClass('active')
-            $overlayContent.html('');
-            $html.removeClass('noscroll')
+         $overlayClose.click(function() {
+                $gridItem.removeClass('active');
+                $overlay.removeClass('active')
+                $overlayContent.html('');
+                $html.removeClass('noscroll');
+                circleOverlay.playBackward();
         });
+
+        
 
 
 
