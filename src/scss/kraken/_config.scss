@@ -182,7 +182,7 @@ $grid-dynamic: (
 	// $class - {string} the grid class
 	// $breakpoint - {string|variable} the breakpoint
 	// $width - {string|variable} width of the grid at the breakpoint
-	(".grid-dynamic", $bp-xsmall, map-get($grid-sizes, full))
-	(".grid-dynamic", $bp-small, map-get($grid-sizes, half))
+	(".grid-dynamic", $bp-xsmall, map-get($grid-sizes, half))
+	(".grid-dynamic", $bp-small, map-get($grid-sizes, third))
 	(".grid-dynamic", $bp-medium, map-get($grid-sizes, fourth))
 );
