@@ -54,7 +54,7 @@
 
 	var _grid = __webpack_require__(4);
 
-	var _konamiCode = __webpack_require__(5);
+	var _konamiCode = __webpack_require__(8);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9943,11 +9943,11 @@
 
 	var _debug = __webpack_require__(3);
 
-	var _mixitup = __webpack_require__(6);
+	var _mixitup = __webpack_require__(5);
 
 	var _mixitup2 = _interopRequireDefault(_mixitup);
 
-	var _imagesloaded = __webpack_require__(7);
+	var _imagesloaded = __webpack_require__(6);
 
 	var _imagesloaded2 = _interopRequireDefault(_imagesloaded);
 
@@ -10041,68 +10041,6 @@
 
 /***/ },
 /* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports.konami = undefined;
-
-	var _jquery = __webpack_require__(1);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _debug = __webpack_require__(3);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function konami() {
-		//Set up our array of needed keys, and variables.
-		var neededkeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
-		    started = false,
-		    count = 0;
-		(0, _jquery2.default)(document).keydown(function (e) {
-			var key = e.keyCode;
-			//Set start to true only if having pressed the first key in the konami sequence.
-			if (!started) {
-				if (key == 38) {
-					started = true;
-				}
-			}
-			//If we've started, pay attention to key presses, looking for right sequence.
-			if (started) {
-				if (neededkeys[count] == key) {
-					//We're good so far.
-					count++;
-				} else {
-					//Oops, not the right sequence, lets restart from the top.
-					reset();
-				}
-				if (count == 10) {
-					//We made it! Put code here to do what you want when successfully execute konami sequence
-					(0, _jquery2.default)('body').toggleClass('konami');
-					(0, _debug.debug)('konami code activated!', 'success');
-					//Reset the conditions so that someone can do it all again.
-					reset();
-				}
-			} else {
-				//Oops.
-				reset();
-			}
-		});
-		//Function used to reset us back to starting point.
-		function reset() {
-			started = false;count = 0;
-			return;
-		}
-	}
-
-	exports.konami = konami;
-
-/***/ },
-/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module) {'use strict';
@@ -20366,7 +20304,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -20387,7 +20325,7 @@
 
 	  if (true) {
 	    // AMD
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(8)], __WEBPACK_AMD_DEFINE_RESULT__ = function (EvEmitter) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(7)], __WEBPACK_AMD_DEFINE_RESULT__ = function (EvEmitter) {
 	      return factory(window, EvEmitter);
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	  } else if ((typeof module === 'undefined' ? 'undefined' : _typeof(module)) == 'object' && module.exports) {
@@ -20736,7 +20674,7 @@
 	});
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -20850,6 +20788,68 @@
 
 	  return EvEmitter;
 	});
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.konami = undefined;
+
+	var _jquery = __webpack_require__(1);
+
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	var _debug = __webpack_require__(3);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function konami() {
+		//Set up our array of needed keys, and variables.
+		var neededkeys = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65],
+		    started = false,
+		    count = 0;
+		(0, _jquery2.default)(document).keydown(function (e) {
+			var key = e.keyCode;
+			//Set start to true only if having pressed the first key in the konami sequence.
+			if (!started) {
+				if (key == 38) {
+					started = true;
+				}
+			}
+			//If we've started, pay attention to key presses, looking for right sequence.
+			if (started) {
+				if (neededkeys[count] == key) {
+					//We're good so far.
+					count++;
+				} else {
+					//Oops, not the right sequence, lets restart from the top.
+					reset();
+				}
+				if (count == 10) {
+					//We made it! Put code here to do what you want when successfully execute konami sequence
+					(0, _jquery2.default)('body').toggleClass('konami');
+					(0, _debug.debug)('konami code activated!', 'success');
+					//Reset the conditions so that someone can do it all again.
+					reset();
+				}
+			} else {
+				//Oops.
+				reset();
+			}
+		});
+		//Function used to reset us back to starting point.
+		function reset() {
+			started = false;count = 0;
+			return;
+		}
+	}
+
+	exports.konami = konami;
 
 /***/ }
 /******/ ]);
