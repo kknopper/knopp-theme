@@ -2,10 +2,10 @@
 
 {% block content %}
 	<section class="portfolio container">
-		<ul>
-			<a data-filter="all">All</a>
-			<a data-filter=".dev">Development</a>
-			<a data-filter=".des">Design</a>
+		<ul class="portfolio-tag-list">
+			<li><a data-filter="all" class="tag theme-color-bg"><i class="fa fa-tag"></i>All</a></li>
+			<li><a data-filter=".dev" class="tag theme-color-bg"><i class="fa fa-tag"></i>Development</a></li>
+			<li><a data-filter=".des" class="tag theme-color-bg"><i class="fa fa-tag"></i>Design</a></li>
 		</ul>
 		<ul class="portfolio-grid">
 			{% set collection = page.collection() %}

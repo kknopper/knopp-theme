@@ -1,13 +1,12 @@
 
-<footer role="navigation" class="footer">
+<footer role="navigation" class="footer theme-color-bg">
     <div class="footer-logo-wrap">
         <div class="footer-logo theme-color-bg">
             <!-- <img class="theme-color-bg" src="{{ theme_url }}/target/images/mii.png" alt="mii"> -->
         </div>
     </div>
-    <div class="footer-wrap theme-color-box-shadow-footer">
+    <div class="footer-wrap">
         <nav class="container">
-            
             <ul class="footer-share">
                 <li>
                     <a href="https://dribbble.com/kknopper" target="_blank"><i class="icon-dribbble"></i></a>
@@ -30,10 +29,8 @@
                 <li>
                     <a href="#" target="_blank"><i class="icon-rss"></i></a>
                 </li>
-            </ul>
-            
-            
-            <ul class="footer-links">
+            </ul><!--
+            --><ul class="footer-links">
                 {% for page in pages.children %}
                 {% if page.visible %}
                 {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}

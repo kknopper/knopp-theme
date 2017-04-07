@@ -109,9 +109,9 @@ nav.container {
     }
 
     &.active {
-      border-bottom: 2px solid $color-white;
+      // border-bottom: 2px solid $color-white;
       background-color: white;
-      border-radius: 2px;
+      border-radius: 5em;
       
       a {
         color: $color-primary;

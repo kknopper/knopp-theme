@@ -9984,6 +9984,14 @@
 	                }
 	            });
 
+	            //TO DO function to recenter on mobile resize
+	            // function recalcCircleCenter($this) {
+	            //  let newTop = (($this.filter('active').find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
+	            //  let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
+	            //  let newRadius = squareWidth * 0.25
+	            // }
+
+
 	            var circleOverlay = new mojs.Shape({
 	                shape: 'circle',
 	                isShowStart: true,
@@ -10011,7 +10019,6 @@
 	                var newTop = ((0, _jquery2.default)(this).find('.portfolio-piece-wrap').outerHeight() - (0, _jquery2.default)('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px';
 	                var newLeft = ((0, _jquery2.default)(this).find('.portfolio-piece-wrap').outerWidth() - (0, _jquery2.default)('.circle-overlay').outerWidth() * 0.25) / 2 + squareOffset.left + 'px';
 	                var newRadius = squareWidth * 0.25;
-	                console.log(newTop);
 
 	                circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
 

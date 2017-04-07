@@ -33,6 +33,14 @@ function grid() {
 	   });
 
 
+       //TO DO function to recenter on mobile resize
+       // function recalcCircleCenter($this) {
+       //  let newTop = (($this.filter('active').find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
+       //  let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
+       //  let newRadius = squareWidth * 0.25
+       // }
+
+
         let circleOverlay = new mojs.Shape({
             shape: 'circle',
             isShowStart:  true,
@@ -61,7 +69,6 @@ function grid() {
             let newTop = (($(this).find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
             let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
             let newRadius = squareWidth * 0.25
-            console.log(newTop);
 
             circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
 
@@ -75,11 +82,11 @@ function grid() {
         });
 
          $overlayClose.click(function() {
-                $gridItem.removeClass('active');
-                $overlay.removeClass('active')
-                $overlayContent.html('');
-                $html.removeClass('noscroll');
-                circleOverlay.playBackward();
+            $gridItem.removeClass('active');
+            $overlay.removeClass('active')
+            $overlayContent.html('');
+            $html.removeClass('noscroll');
+            circleOverlay.playBackward();
         });
 
         

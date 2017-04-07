@@ -1,0 +1,55 @@
+.sidebar {
+
+	&-content {
+		.tags a {
+			width: 45%;
+			margin: 1.5%;
+			cursor: pointer;
+			display: inline-block;
+			white-space: normal;
+			vertical-align: top;
+			padding: 5px;
+		font-size: rem(9);
+
+			&:nth-child(odd) {
+				margin-left: 0;
+			}
+
+		}
+
+		.tags {
+			// white-space: nowrap;
+			// clear: both;
+		}
+
+		.archives {
+			margin-left: 0;
+
+			li {
+				list-style-type: none;
+				font-family: Montserrat;
+			}
+
+			a {
+				display: block;
+			}
+
+			.label {
+				display: inline-block;
+				color: $color-white;
+				background-color: $color-secondary;
+				border-radius: 50%;
+				padding: 5px;
+				width: 35px;
+				height: 35px;
+				text-align: center;
+				// float: right;          
+			}
+
+			.archive_date {
+				// float: right;
+			}
+		}
+	}
+	
+}

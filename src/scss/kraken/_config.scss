@@ -15,13 +15,21 @@
 
 // Colors
 $color-primary: #F06925;
-$color-secondary: #96BDC6;
-$color-tertiary: #65C18D;
+// $color-secondary: #96BDC6;
+$color-secondary: #08B2E3;
+$color-secondary: #477998;
+$color-secondary: #65C18D;
+$color-secondary: #72B542;
+$color-secondary: #65C18D;
+// $color-secondary: #588B8B;
+// $color-secondary: #002642;
+// $color-secondary: #0D1F2D;
+$color-tertiary: #72B542;
 $color-black: #272727;
 $color-white: #ffffff;
 
-$konami-primary: $color-tertiary;
-$konami-secondary: $color-primary;
+$konami-primary: #08B2E3;
+$konami-secondary: #588B8B;
 $konami-tertiary: $color-primary;
 
 $color-info: #0088cc; // Blue
@@ -96,32 +104,32 @@ $color-gray-light: #e5e5e5;
 
 .theme-color-box-shadow-footer {
 	&:after {
-		box-shadow: 0px 10000px 0px 10000px $color-primary;
+		box-shadow: 0px 50000px 0px 50000px $color-primary;
 		transition: box-shadow 2s ease-in-out;
 
 		.konami & {
-			box-shadow: 0px 10000px 0px 10000px $konami-primary;
+			box-shadow: 0px 50000px 0px 50000px $konami-primary;
 		}
 	}
 	
 	&-secondary {
 		&:after{
-			box-shadow: 0px 10000px 0px 10000px $color-secondary;
+			box-shadow: 0px 50000px 0px 50000px $color-secondary;
 			transition: box-shadow 2s ease-in-out;
 
 			.konami & {
-				box-shadow: 0px 10000px 0px 10000px $konami-secondary;
+				box-shadow: 0px 50000px 0px 50000px $konami-secondary;
 			}
 		}
 	}
 
 	&-tertiary {
 		&:after {
-			box-shadow: 0px 10000px 0px 10000px $color-tertiary;
+			box-shadow: 0px 50000px 0px 50000px $color-tertiary;
 			transition: box-shadow 2s ease-in-out;
 
 			.konami & {
-				box-shadow: 0px 10000px 0px 10000px $konami-tertiary;
+				box-shadow: 0px 50000px 0px 50000px $konami-tertiary;
 			}
 		}
 	}

@@ -28,82 +28,8 @@
 	margin: 0 auto;
 	position: relative;
 	border: 5px solid $color-tertiary;
-}
 
-
-//SVGS
-.education-1,  .education-2  {
-    fill: none;
-}
-.education-1 {
-    clip-rule: evenodd;
-}
-.education-3 {
-    clip-path: url(#clip-path);
-}
-.education-4 {
-    clip-path: url(#clip-path-2);
-}
-.education-5 {
-    fill: #f06825;
-}
-.education-6 {
-    clip-path: url(#clip-path-3);
-}
-.education-7 {
-    fill: #fff;
-}
-.education-8 {
-    clip-path: url(#clip-path-5);
-}
-.education-9 {
-    clip-path: url(#clip-path-7);
-}
-.education-10 {
-    clip-path: url(#clip-path-9);
-}
-.education-11 {
-    fill: #231f20;
-}
-.education-12 {
-    clip-path: url(#clip-path-11);
-}
-
-
-//OCCUPATION SVG
-.occupation-1, .occupation-2 {
-    fill: none;
-}
-.occupation-1 {
-    clip-rule: evenodd;
-}
-.occupation-3 {
-    clip-path: url(#clip-path);
-}
-.occupation-4 {
-    clip-path: url(#clip-path-2);
-}
-.occupation-5 {
-    fill: #f06825;
-}
-.occupation-6 {
-    clip-path: url(#clip-path-3);
-}
-.occupation-7 {
-    fill: #fff;
-}
-.occupation-8 {
-    clip-path: url(#clip-path-5);
-}
-.occupation-9 {
-    clip-path: url(#clip-path-7);
-}
-.occupation-10 {
-    fill: #050606;
-}
-.occupation-11 {
-    clip-path: url(#clip-path-9);
-}
-.occupation-12 {
-    clip-path: url(#clip-path-11);
+    svg {
+        @include transform-center();
+    }
 }

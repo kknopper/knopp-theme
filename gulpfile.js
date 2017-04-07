@@ -117,11 +117,11 @@ gulp.task('html', function(){
 	    .pipe(gulp.dest(conf.dist.html))
 	    .pipe(browserSync.stream());
 });
-console.log(__dirname)
+// console.log(__dirname)
 
 //Scss with autoprefixer and sourcemaps
 gulp.task('scss', function(){
-	console.log(__dirname + '/node_modules')
+	// console.log(__dirname + '/node_modules')
 	gulp.src(conf.src.scss)
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
