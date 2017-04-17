@@ -4,12 +4,6 @@
 		margin-bottom: rem(12);
 	}
 
-	hr {
-		height: 3px;
-		margin: 0;
-		margin-bottom: rem(20);
-	}
-
 	.blog-container {
 		.blog-header {
 			hr {
@@ -20,6 +14,7 @@
 				font-family: 'Montserrat';
 				font-weight: 500;
 				text-transform: capitalize;
+				padding-top: 0;
 
 				a {
 					color: $color-black;

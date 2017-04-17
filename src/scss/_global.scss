@@ -27,6 +27,12 @@ h3 {
 	text-transform: uppercase;
 }
 
+hr {
+	height: 3px;
+	margin: 0;
+	margin-bottom: rem(20);
+}
+
 a {
 	&:hover, &:active, &:focus {
 		text-decoration: none;
@@ -35,7 +41,7 @@ a {
 
 p, ul, li, body {
 	font-weight: normal;
-	font-family: 'Open Sans';
+	font-family: 'Montserrat';
 }
 
 main section:first-child {

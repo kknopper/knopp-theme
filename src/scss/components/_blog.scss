@@ -6,12 +6,19 @@
 	&-title {
 		margin-bottom: 0;
 		cursor: pointer;
+
+		@include breakpoint(tablet) {
+			font-size: rem(24);
+		}
+
+		@include breakpoint(desktop) {
+			font-size: rem(36);
+		}
 	}
 
 	&-published {
 		font-size: rem(20);
 		color: $color-black;
-
 	}
 
 	&-tag.tag {
@@ -28,7 +35,6 @@
 
 	&-read-more {
 		transition: 0.3s;
+		text-decoration: underline;
 	}
-
-	
 }

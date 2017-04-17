@@ -32,29 +32,42 @@ function grid() {
     	   }
 	   });
 
+       let circleOverlay = new mojs.Shape({
+           shape: 'circle',
+           isShowStart:  true,
+           radius: 20,
+           fill: '#65C18D',
+           // parent: '.portfolio-grid',
+           className: 'circle-overlay',
+           opacity: {0:1},
+           duration: 400,
+           delay: 300
+       }).then({
+           scale: { 0.5 : 50 },
+           duration: 500,
+       });
 
-       //TO DO function to recenter on mobile resize
-       // function recalcCircleCenter($this) {
-       //  let newTop = (($this.filter('active').find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
-       //  let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
-       //  let newRadius = squareWidth * 0.25
-       // }
+       let circleOverlayInitialHeight = $('.circle-overlay').outerHeight()
+        let circleOverlayInitialWidth = $('.circle-overlay').outerWidth()
 
+       function recalcCircleCenter(expandOut) {
+        let $gridPortfolioPieceWrap = $('.portfolio-piece.active').find('.portfolio-piece-wrap');
+        let $circleOverlay = $('.circle-overlay');
 
-        let circleOverlay = new mojs.Shape({
-            shape: 'circle',
-            isShowStart:  true,
-            radius: 20,
-            fill: '#96BDC6',
-            // parent: '.portfolio-grid',
-            className: 'circle-overlay',
-            opacity: {0:1},
-            duration: 400,
-            delay: 300
-        }).then({
-            scale: { 0.5 : 50 },
-            duration: 500,
-        });
+        let newCoordinates = {};
+        
+        let squareWidth = $gridPortfolioPieceWrap.width() / 2;
+        let squareOffset = $gridPortfolioPieceWrap.offset();
+
+        newCoordinates.top = (($gridPortfolioPieceWrap.outerHeight() - circleOverlayInitialHeight * 0.25) / 2 + squareOffset.top + 'px');
+        newCoordinates.left = (($gridPortfolioPieceWrap.outerWidth() - circleOverlayInitialWidth * 0.25)  / 2 + squareOffset.left+ 'px');
+        newCoordinates.radius = squareWidth * 0.25;
+        console.log(circleOverlay);
+        console.log(newCoordinates)
+
+        if(expandOut) circleOverlay.tune({ left: newCoordinates.left, top: newCoordinates.top, radius: newCoordinates.radius }).play();
+        else circleOverlay.tune({ left: newCoordinates.left, top: newCoordinates.top, radius: newCoordinates.radius }).playBackward()
+       }
 
 
         $gridItem.click(function(e) {
@@ -63,14 +76,15 @@ function grid() {
             $gridItem.removeClass('active');
             $(this).addClass('active');
 
-            let squareWidth = $(this).find('.portfolio-piece-wrap').width() / 2;
-            let squareOffset = $(this).find('.portfolio-piece-wrap').offset();
+            // let squareWidth = $(this).find('.portfolio-piece-wrap').width() / 2;
+            // let squareOffset = $(this).find('.portfolio-piece-wrap').offset();
 
-            let newTop = (($(this).find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
-            let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
-            let newRadius = squareWidth * 0.25
+            // let newTop = (($(this).find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
+            // let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
+            // let newRadius = squareWidth * 0.25
 
-            circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
+            // circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
+            recalcCircleCenter(true);
 
             let newHTML = $(this).find('.portfolio-piece-expansion').html();
 
@@ -82,11 +96,12 @@ function grid() {
         });
 
          $overlayClose.click(function() {
+            recalcCircleCenter(false);
             $gridItem.removeClass('active');
             $overlay.removeClass('active')
             $overlayContent.html('');
             $html.removeClass('noscroll');
-            circleOverlay.playBackward();
+            // circleOverlay.playBackward();
         });
 
         
