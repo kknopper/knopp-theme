@@ -29,7 +29,7 @@
 	position: relative;
 	border: 5px solid $color-tertiary;
 
-    svg {
-        @include transform-center();
-    }
+	svg {
+		@include transform-center();
+	}
 }

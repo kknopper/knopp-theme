@@ -32,11 +32,13 @@ function grid() {
     	   }
 	   });
 
+       let fillColor = $('.theme-color-bg-secondary').css('background-color');
+
        let circleOverlay = new mojs.Shape({
            shape: 'circle',
            isShowStart:  true,
            radius: 20,
-           fill: '#65C18D',
+           fill: fillColor,
            // parent: '.portfolio-grid',
            className: 'circle-overlay',
            opacity: {0:1},
@@ -74,6 +76,7 @@ function grid() {
             e.preventDefault();
             //remove currecnt active states
             $gridItem.removeClass('active');
+            $(this).addClass('active-animations');
             $(this).addClass('active');
 
             // let squareWidth = $(this).find('.portfolio-piece-wrap').width() / 2;
@@ -101,7 +104,13 @@ function grid() {
             $overlay.removeClass('active')
             $overlayContent.html('');
             $html.removeClass('noscroll');
-            // circleOverlay.playBackward();
+            
+            //Wait for animatins to end based off css transtions
+            //removes class so transtions dont conflict with mixitup transitions
+            setTimeout(function() {
+                debug('remove after complete animtion')
+                $gridItem.removeClass('active-animations');
+            }, 1000)
         });
 
         

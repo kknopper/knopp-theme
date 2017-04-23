@@ -29,8 +29,13 @@
 		z-index: 0;
 		cursor: pointer;
 		margin-bottom: 2.8%;
-		transition: all 0.5s;
-		transition-delay: 0.5s;
+		// transition: all 0.5s;
+		// transition-delay: 0.5s;
+
+		&.active-animations {
+			transition: all 0.5s;
+			transition-delay: 0.5s;
+		}
 
 		a {
 			position: relative;

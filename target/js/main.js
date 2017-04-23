@@ -10952,90 +10952,97 @@
 	        $html = (0, _jquery2.default)('html');
 
 	    if ($grid.length > 0) {
-	        (function () {
-	            var recalcCircleCenter = function recalcCircleCenter(expandOut) {
-	                var $gridPortfolioPieceWrap = (0, _jquery2.default)('.portfolio-piece.active').find('.portfolio-piece-wrap');
-	                var $circleOverlay = (0, _jquery2.default)('.circle-overlay');
+	        var recalcCircleCenter = function recalcCircleCenter(expandOut) {
+	            var $gridPortfolioPieceWrap = (0, _jquery2.default)('.portfolio-piece.active').find('.portfolio-piece-wrap');
+	            var $circleOverlay = (0, _jquery2.default)('.circle-overlay');
 
-	                var newCoordinates = {};
+	            var newCoordinates = {};
 
-	                var squareWidth = $gridPortfolioPieceWrap.width() / 2;
-	                var squareOffset = $gridPortfolioPieceWrap.offset();
+	            var squareWidth = $gridPortfolioPieceWrap.width() / 2;
+	            var squareOffset = $gridPortfolioPieceWrap.offset();
 
-	                newCoordinates.top = ($gridPortfolioPieceWrap.outerHeight() - circleOverlayInitialHeight * 0.25) / 2 + squareOffset.top + 'px';
-	                newCoordinates.left = ($gridPortfolioPieceWrap.outerWidth() - circleOverlayInitialWidth * 0.25) / 2 + squareOffset.left + 'px';
-	                newCoordinates.radius = squareWidth * 0.25;
-	                console.log(circleOverlay);
-	                console.log(newCoordinates);
+	            newCoordinates.top = ($gridPortfolioPieceWrap.outerHeight() - circleOverlayInitialHeight * 0.25) / 2 + squareOffset.top + 'px';
+	            newCoordinates.left = ($gridPortfolioPieceWrap.outerWidth() - circleOverlayInitialWidth * 0.25) / 2 + squareOffset.left + 'px';
+	            newCoordinates.radius = squareWidth * 0.25;
+	            console.log(circleOverlay);
+	            console.log(newCoordinates);
 
-	                if (expandOut) circleOverlay.tune({ left: newCoordinates.left, top: newCoordinates.top, radius: newCoordinates.radius }).play();else circleOverlay.tune({ left: newCoordinates.left, top: newCoordinates.top, radius: newCoordinates.radius }).playBackward();
-	            };
+	            if (expandOut) circleOverlay.tune({ left: newCoordinates.left, top: newCoordinates.top, radius: newCoordinates.radius }).play();else circleOverlay.tune({ left: newCoordinates.left, top: newCoordinates.top, radius: newCoordinates.radius }).playBackward();
+	        };
 
-	            (0, _debug.debug)('Initiate Grid', 'success');
+	        (0, _debug.debug)('Initiate Grid', 'success');
 
-	            var mixer = (0, _mixitup2.default)($grid, {
-	                selectors: {
-	                    target: '.portfolio-piece'
-	                },
-	                animation: {
-	                    duration: 500
-	                }
-	            });
-
-	            var circleOverlay = new mojs.Shape({
-	                shape: 'circle',
-	                isShowStart: true,
-	                radius: 20,
-	                fill: '#65C18D',
-	                // parent: '.portfolio-grid',
-	                className: 'circle-overlay',
-	                opacity: { 0: 1 },
-	                duration: 400,
-	                delay: 300
-	            }).then({
-	                scale: { 0.5: 50 },
+	        var mixer = (0, _mixitup2.default)($grid, {
+	            selectors: {
+	                target: '.portfolio-piece'
+	            },
+	            animation: {
 	                duration: 500
-	            });
+	            }
+	        });
 
-	            var circleOverlayInitialHeight = (0, _jquery2.default)('.circle-overlay').outerHeight();
-	            var circleOverlayInitialWidth = (0, _jquery2.default)('.circle-overlay').outerWidth();
+	        var fillColor = (0, _jquery2.default)('.theme-color-bg-secondary').css('background-color');
 
-	            $gridItem.click(function (e) {
-	                e.preventDefault();
-	                //remove currecnt active states
-	                $gridItem.removeClass('active');
-	                (0, _jquery2.default)(this).addClass('active');
+	        var circleOverlay = new mojs.Shape({
+	            shape: 'circle',
+	            isShowStart: true,
+	            radius: 20,
+	            fill: fillColor,
+	            // parent: '.portfolio-grid',
+	            className: 'circle-overlay',
+	            opacity: { 0: 1 },
+	            duration: 400,
+	            delay: 300
+	        }).then({
+	            scale: { 0.5: 50 },
+	            duration: 500
+	        });
 
-	                // let squareWidth = $(this).find('.portfolio-piece-wrap').width() / 2;
-	                // let squareOffset = $(this).find('.portfolio-piece-wrap').offset();
+	        var circleOverlayInitialHeight = (0, _jquery2.default)('.circle-overlay').outerHeight();
+	        var circleOverlayInitialWidth = (0, _jquery2.default)('.circle-overlay').outerWidth();
 
-	                // let newTop = (($(this).find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
-	                // let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
-	                // let newRadius = squareWidth * 0.25
+	        $gridItem.click(function (e) {
+	            e.preventDefault();
+	            //remove currecnt active states
+	            $gridItem.removeClass('active');
+	            (0, _jquery2.default)(this).addClass('active-animations');
+	            (0, _jquery2.default)(this).addClass('active');
 
-	                // circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
-	                recalcCircleCenter(true);
+	            // let squareWidth = $(this).find('.portfolio-piece-wrap').width() / 2;
+	            // let squareOffset = $(this).find('.portfolio-piece-wrap').offset();
 
-	                var newHTML = (0, _jquery2.default)(this).find('.portfolio-piece-expansion').html();
+	            // let newTop = (($(this).find('.portfolio-piece-wrap').outerHeight() - $('.circle-overlay').outerHeight() * 0.25) / 2 + squareOffset.top + 'px');
+	            // let newLeft = (($(this).find('.portfolio-piece-wrap').outerWidth() - $('.circle-overlay').outerWidth() * 0.25)  / 2 + squareOffset.left+ 'px');
+	            // let newRadius = squareWidth * 0.25
 
-	                $overlay.addClass('active');
-	                $overlayContent.html("<div class=\"container\">" + newHTML + "</div>");
-	                $html.addClass('noscroll');
-	            });
+	            // circleOverlay.tune({ left: newLeft, top: newTop, radius: newRadius }).play();
+	            recalcCircleCenter(true);
 
-	            $overlayClose.click(function () {
-	                recalcCircleCenter(false);
-	                $gridItem.removeClass('active');
-	                $overlay.removeClass('active');
-	                $overlayContent.html('');
-	                $html.removeClass('noscroll');
-	                // circleOverlay.playBackward();
-	            });
+	            var newHTML = (0, _jquery2.default)(this).find('.portfolio-piece-expansion').html();
 
-	            $grid.imagesLoaded(function () {
-	                (0, _debug.debug)('Grid images loaded');
-	            });
-	        })();
+	            $overlay.addClass('active');
+	            $overlayContent.html("<div class=\"container\">" + newHTML + "</div>");
+	            $html.addClass('noscroll');
+	        });
+
+	        $overlayClose.click(function () {
+	            recalcCircleCenter(false);
+	            $gridItem.removeClass('active');
+	            $overlay.removeClass('active');
+	            $overlayContent.html('');
+	            $html.removeClass('noscroll');
+
+	            //Wait for animatins to end based off css transtions
+	            //removes class so transtions dont conflict with mixitup transitions
+	            setTimeout(function () {
+	                (0, _debug.debug)('remove after complete animtion');
+	                $gridItem.removeClass('active-animations');
+	            }, 1000);
+	        });
+
+	        $grid.imagesLoaded(function () {
+	            (0, _debug.debug)('Grid images loaded');
+	        });
 	    }
 	}
 
@@ -11050,9 +11057,9 @@
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	/**!
-	 * MixItUp v3.1.8
+	 * MixItUp v3.1.10
 	 * A high-performance, dependency-free library for animated filtering, sorting and more
-	 * Build 8b4a57ae-dad2-4d16-bc0b-024c6a7b1cb0
+	 * Build e6e7a2d0-7eef-4170-a198-9a6a2bd4e53e
 	 *
 	 * @copyright Copyright 2014-2017 KunkaLabs Limited.
 	 * @author    KunkaLabs Limited.
@@ -17313,7 +17320,7 @@
 	            // Prevent scrollbar flicker on non-inertial scroll platforms by clamping height
 
 	            if (self.config.animation.clampHeight) {
-	                self.dom.parent.style.height = operation.startHeight;
+	                self.dom.parent.style.height = operation.startHeight + 'px';
 	                self.dom.parent.style.overflow = 'hidden';
 	            }
 
@@ -19307,14 +19314,16 @@
 
 	            self.filterOperation(operation);
 
-	            if (changeLayoutCommand) {
-	                operation.startContainerClassName = operation.startState.activeContainerClassName;
+	            operation.startContainerClassName = operation.startState.activeContainerClassName;
 
+	            if (changeLayoutCommand) {
 	                operation.newContainerClassName = changeLayoutCommand.containerClassName;
 
 	                if (operation.newContainerClassName !== operation.startContainerClassName) {
 	                    operation.willChangeLayout = true;
 	                }
+	            } else {
+	                operation.newContainerClassName = operation.startContainerClassName;
 	            }
 
 	            if (self.config.animation.enable) {
@@ -21301,7 +21310,7 @@
 	    _mixitup.BaseStatic.call(_mixitup.constructor);
 
 	    _mixitup.NAME = 'mixitup';
-	    _mixitup.CORE_VERSION = '3.1.8';
+	    _mixitup.CORE_VERSION = '3.1.10';
 	})(window);
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 

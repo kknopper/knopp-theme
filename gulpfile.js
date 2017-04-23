@@ -46,8 +46,9 @@ gulp.task('js', function() {
 			module: {
 				loaders: [{
 					loader: 'babel-loader',
-					exlude: '/node_modules',
+					exlude: /node_modules/,
 					query: {
+						plugins: ['transform-runtime'],
 						presets: ['es2015']
 					}
 				}],
