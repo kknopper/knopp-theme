@@ -26,20 +26,37 @@
 		}
 
 		.search-wrapper {
+			position: relative;
 
 			.search-input-wrapper {
 				display: block;
 			}
 
+			.search-input {
+				width: 100%;
+			}
+
 			.fa {
 				font-size: 1.75em;
-				position: relative;
-				right: 35px;
+				position: absolute;
+				right: 15px;
+				top: 35px;
 				color: $color-secondary;
 				transition: color 0.3s ease-in-out;
 
 				&.invalid {
 					color: red;
+				}
+
+				@include breakpoint(tablet) {
+					font-size: 1.25em;
+					right: 15px;
+					top: 25px;
+				}
+
+				@include breakpoint(desktop) {
+					font-size: 1.75em;
+					top: 35px;
 				}
 			}
 

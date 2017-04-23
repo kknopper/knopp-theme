@@ -19,7 +19,7 @@
                 	<a href="{{ page.url }}"><i class="fa fa-angle-double-right u-url"></i></a>
                 {% endif %}
                 {% if config.plugins.readingtime.enabled %}
-                	{{ page.content|readingtime({'minutes_label': 'min', 'minute_label': 'min', 'seconds_label': 's', 'second_label': 's'}) }}
+                	{# {{ page.content|readingtime({'minutes_label': 'mins', 'minute_label': 'min', 'seconds_label': 's', 'second_label': 's'}) }} #}
                 {% endif %}
                 <a href="{{ page.header.link }}" class="u-url">{{ page.title }}</a>
                 <time class="dt-published" datetime="{{ page.date|date("c") }}">
@@ -29,13 +29,26 @@
             </h3>
             <hr class="theme-color-bg-secondary">
         {% else %}
-            <h3 class="blog-title"><a href="{{ page.url }}" class="u-url">{{ page.title }}</a><span class="list-blog-date">
-                <time class="blog-published" datetime="{{ page.date|date("c") }}">
-                    <span>{{ page.date|date("d") }}</span>
-                    <em>{{ page.date|date("M") }}</em>
-                </time>
-            </span></h3>
-             <hr class="theme-color-bg-secondary">
+            <div class="blog-headline">
+                <div class="blog-heading">
+                    <h3 class='blog-title'><a href="{{ page.url }}" class="u-url">{{ page.title }}</a></h3>
+                    <h4 class="blog-list-date">
+                        <time class="blog-published" datetime="{{ page.date|date("c") }}">
+                            <span>{{ page.date|date("d") }}</span>
+                            <em>{{ page.date|date("M") }}</em>
+                        </time>
+                    </h4>
+                </div>
+                
+                {% if config.plugins.readingtime.enabled %}
+                    <div class='blog-reading-time'>
+                        <i class='fa fa-clock-o' aria-hidden='true'></i>
+                        {{ page.content|readingtime({'format': '{minutes_short_count} min'}) }}
+                    </div>
+                    
+                {% endif %}
+            </div>
+            <hr class="theme-color-bg-secondary">
 
         {% endif %}
 

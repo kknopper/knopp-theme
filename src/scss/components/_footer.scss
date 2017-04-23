@@ -108,8 +108,8 @@
 			z-index: 2;
 		}
 
-		&:active {
-			background-image: url('../images/mii-wink.png');
+		&:hover {
+			background-position: 60% -120px;
 		}
 	}
 }
