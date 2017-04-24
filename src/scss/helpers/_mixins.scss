@@ -42,11 +42,17 @@
 // $bp-medium: 40em;
 // $bp-large: 60em;
 // $bp-xlarge: 80em;
+// $bp-xxlarge: 90em;
+// $bp-xxxlarge: 90em;
 
 //desktop: 960
 //tablet: 640
 @mixin breakpoint($point) {
-  @if $point == l-desktop {
+  @if $point == xxl-desktop {
+    @media (min-width: $bp-xxxlarge) { @content; }
+  } @else if $point == xl-desktop {
+    @media (min-width: $bp-xxlarge) { @content; }
+  } @else if $point == l-desktop {
     @media (min-width: $bp-xlarge) { @content; }
   } @else if $point == desktop {
     @media (min-width: $bp-large)  { @content; }

@@ -4,7 +4,7 @@
 	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 0 / cover no-repeat;
 
 	@include breakpoint(tablet) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -65px / cover no-repeat;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -55px / cover no-repeat;
 	}
 
 	@include breakpoint(desktop) {
@@ -12,7 +12,15 @@
 	}
 
 	@include breakpoint(l-desktop) {
-		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 -450px / cover no-repeat;
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 35% / cover no-repeat;
+	}
+
+	@include breakpoint(xl-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 40% / cover no-repeat;
+	}
+
+	@include breakpoint(xxl-desktop) {
+		background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/hero.jpg') 0 50% / cover no-repeat;
 	}
 
 	&-wrap {
